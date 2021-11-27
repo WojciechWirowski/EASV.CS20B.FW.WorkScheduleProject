@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
+        <PackageReference Include="Moq" Version="4.16.1" />
+        <PackageReference Include="coverlet.collector" Version="3.0.2" />
+        <PackageReference Include="xunit.assert" Version="2.4.2-pre.12" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="xunit.core, Version=2.4.2.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+        <HintPath>..\..\..\.nuget\packages\xunit.extensibility.core\2.4.2-pre.12\lib\netstandard1.1\xunit.core.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Core\EASV.CS20B.FW.WorkScheduleProject.Core.csproj" />
+    </ItemGroup>
+
+</Project>

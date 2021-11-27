@@ -1,0 +1,15 @@
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.deps.json
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\ref\EASV.CS20B.FW.WorkScheduleProject.Domain.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.pdb
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.pdb
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj.AssemblyReference.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.AssemblyInfoInputs.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.AssemblyInfo.cs
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj.CoreCompileInputs.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj.CopyComplete
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\ref\EASV.CS20B.FW.WorkScheduleProject.Domain.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Domain\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Domain.pdb

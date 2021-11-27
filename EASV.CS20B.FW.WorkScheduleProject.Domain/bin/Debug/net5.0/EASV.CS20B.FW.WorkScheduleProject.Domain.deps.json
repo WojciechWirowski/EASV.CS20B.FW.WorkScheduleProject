@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "EASV.CS20B.FW.WorkScheduleProject.Domain/1.0.0": {
+        "dependencies": {
+          "EASV.CS20B.FW.WorkScheduleProject.Core": "1.0.0"
+        },
+        "runtime": {
+          "EASV.CS20B.FW.WorkScheduleProject.Domain.dll": {}
+        }
+      },
+      "EASV.CS20B.FW.WorkScheduleProject.Core/1.0.0": {
+        "runtime": {
+          "EASV.CS20B.FW.WorkScheduleProject.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EASV.CS20B.FW.WorkScheduleProject.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EASV.CS20B.FW.WorkScheduleProject.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

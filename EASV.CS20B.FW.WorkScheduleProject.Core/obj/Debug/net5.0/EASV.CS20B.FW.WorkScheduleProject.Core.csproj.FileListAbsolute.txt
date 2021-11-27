@@ -1,0 +1,12 @@
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.deps.json
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\bin\Debug\net5.0\ref\EASV.CS20B.FW.WorkScheduleProject.Core.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\bin\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.pdb
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.csproj.AssemblyReference.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.AssemblyInfoInputs.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.AssemblyInfo.cs
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.csproj.CoreCompileInputs.cache
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\ref\EASV.CS20B.FW.WorkScheduleProject.Core.dll
+C:\Users\PC0\RiderProjects\EASV.CS20B.FW.WorkScheduleProject\EASV.CS20B.FW.WorkScheduleProject.Core\obj\Debug\net5.0\EASV.CS20B.FW.WorkScheduleProject.Core.pdb
