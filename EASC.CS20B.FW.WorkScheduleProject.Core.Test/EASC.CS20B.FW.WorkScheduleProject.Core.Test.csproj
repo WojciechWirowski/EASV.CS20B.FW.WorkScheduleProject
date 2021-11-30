@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="ModelsTest" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Core\EASV.CS20B.FW.WorkScheduleProject.Core.csproj" />
     </ItemGroup>
 
