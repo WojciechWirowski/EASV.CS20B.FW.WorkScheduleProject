@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.csproj": {}
+    "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.csproj": {
+    "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.csproj",
+        "projectUniqueName": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.csproj",
         "projectName": "EASV.CS20B.FW.WorkScheduleProject",
-        "projectPath": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.csproj",
-        "packagesPath": "C:\\Users\\PC0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject\\obj\\",
+        "projectPath": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.csproj",
+        "packagesPath": "/Users/Evens/.nuget/packages/",
+        "outputPath": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC0\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/Evens/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -52,7 +52,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\PC0\\.dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
         }
       }
     }
