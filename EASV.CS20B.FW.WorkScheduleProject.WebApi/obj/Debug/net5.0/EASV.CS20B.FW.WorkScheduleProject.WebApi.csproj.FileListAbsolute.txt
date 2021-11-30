@@ -142,7 +142,6 @@ C:/Users/PC0/RiderProjects/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkS
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/staticwebassets/EASV.CS20B.FW.WorkScheduleProject.WebApi.StaticWebAssets.xml
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/scopedcss/bundle/EASV.CS20B.FW.WorkScheduleProject.WebApi.styles.css
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/EASV.CS20B.FW.WorkScheduleProject.WebApi.RazorTargetAssemblyInfo.cache
-/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/EASV.CS20B.FW.WorkScheduleProject.WebApi.csproj.CopyComplete
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/EASV.CS20B.FW.WorkScheduleProject.WebApi.dll
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/ref/EASV.CS20B.FW.WorkScheduleProject.WebApi.dll
 /Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/Debug/net5.0/EASV.CS20B.FW.WorkScheduleProject.WebApi.pdb
