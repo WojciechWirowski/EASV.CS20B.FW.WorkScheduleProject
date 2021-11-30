@@ -70,7 +70,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             // adding DB info
             services.AddDbContext<ScheduleApplicationContext>(
                 opt => opt.UseLoggerFactory(loggerFactory)
-                    .UseSqlite("Data source = ProductProject.db"));
+                    .UseSqlite("Data source = ScheduleProject.db"));
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -86,7 +86,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             services.AddTransient<IAuthorizableOwnerIdentity, UserResourceOwnerAuthorizationService>();
             services.AddAuthorization(opt =>
             {
-                opt.AddPolicy("OwnerPolicy",
+                opt.AddPolicy("UserPolicy",
                     policy => { policy.Requirements.Add(new ResourceOwnerRequirement()); });
             });
             services.AddSingleton<IAuthenticationHelper>(new AuthenticationHelper(secretBytes));
@@ -94,7 +94,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             
             services.AddCors(opt =>
             {
-                opt.AddPolicy("product-policy", builder =>
+                opt.AddPolicy("UserPolicy", builder =>
                 {
                     builder
                         .AllowAnyHeader()
@@ -106,15 +106,25 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ScheduleApplicationContext context)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EASV.CS20B.FW.WorkScheduleProject.WebApi v1"));
-            }
+            
 
+            app.UseCors("UserPolicy");
+            var dbSeeder = new DbSeeder(context);
+            dbSeeder.SeedDevelopment();
+            }
+            else
+            {
+                app.UseCors("Prod.cors");
+                // when we out of develop mode then create a new DB
+                new DbSeeder(context).SeedProduction();
+            }
             app.UseHttpsRedirection();
 
             app.UseRouting();

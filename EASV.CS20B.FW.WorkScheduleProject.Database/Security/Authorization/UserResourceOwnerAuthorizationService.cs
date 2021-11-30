@@ -5,13 +5,13 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authorization
 {
-    public class UserResourceOwnerAuthorizationService : AuthorizationHandler<ResourceOwnerRequirement, IAuthorizableOwnerIdentity>
+    public class UserResourceOwnerAuthorizationService : AuthorizationHandler<ResourceOwnerRequirement, IAuthorizableOwnerIdentity>, IAuthorizableOwnerIdentity
     {
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ResourceOwnerRequirement requirement,
             IAuthorizableOwnerIdentity resource)
         {
             string userName = context.User.Identity.Name;
-            string resourceOwnerName = resource.getAuthorizedOwnerName();
+            string resourceOwnerName = resource.GetAuthorizedOwnerName();
             if (userName != null && userName.Equals(resourceOwnerName))
             {
                 context.Succeed(requirement);
