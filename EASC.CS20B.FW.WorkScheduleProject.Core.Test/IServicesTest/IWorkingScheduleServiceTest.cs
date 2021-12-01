@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Moq;
 using Xunit;
@@ -105,10 +106,20 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             Assert.Equal(_workingSchedule, schedule);
         }
 
+        /// <summary>
+        /// this is test for GetAll method return list 
+        /// </summary>
         [Fact]
         public void IWorkingScheduleService_GetAllWorkingSchedule_ReturnListOfWorkingSchedule()
         {
+            var workingSchedules = new List<WorkingSchedule>();
+            _workingScheduleService
+                .Setup(service => service.GetAll())
+                .Returns(workingSchedules);
+
+            var schedules = _workingScheduleService.Object.GetAll();    
             
+            Assert.Equal(schedules,workingSchedules);
         }
         
         
@@ -123,9 +134,17 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
         [Fact]
         public void IWorkingScheduleService_GetWorkingScheduleByEmployeeID_ReturnListOfWorkingSchedule()
         {
-            
+            var workingSchedules = new List<WorkingSchedule>();
+            var employeeId = 1;
+            _workingScheduleService
+                .Setup(service => service.GetScheduleByEmployeeId(employeeId))
+                .Returns(workingSchedules);
+            var scheduleByEmployeeId = _workingScheduleService.Object.GetScheduleByEmployeeId(employeeId);
+            Assert.Equal(scheduleByEmployeeId,workingSchedules);
         }
 
+        
+        
 
         #endregion
     }
@@ -135,5 +154,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
         WorkingSchedule Create(WorkingSchedule workingSchedule);
         WorkingSchedule Modify(WorkingSchedule workingSchedule);
         WorkingSchedule Delete(WorkingSchedule workingSchedule);
+        List<WorkingSchedule> GetAll();
+        List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId);
     }
 }
