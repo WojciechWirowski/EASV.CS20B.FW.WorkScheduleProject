@@ -364,6 +364,7 @@ paket-files/
 .fake/
 
 # JetBrains Rider
+.Debug/
 .idea/
 *.sln.iml
 
