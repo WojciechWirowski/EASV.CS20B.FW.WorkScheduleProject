@@ -8,6 +8,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
 {
     public class IUserServiceTest
     {
+        
         #region InterfaceAvaliableTest
 
         [Fact]
