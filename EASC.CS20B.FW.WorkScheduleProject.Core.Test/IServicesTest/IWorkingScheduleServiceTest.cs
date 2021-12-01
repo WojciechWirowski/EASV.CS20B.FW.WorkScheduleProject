@@ -61,6 +61,8 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             // Test the method
             Assert.Equal(workingSchedule,schedule);
         }
+
+        
         
         #endregion
     }

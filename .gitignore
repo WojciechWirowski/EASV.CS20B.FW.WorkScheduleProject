@@ -192,6 +192,8 @@ $tf/
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
+bin/
+Debug
 *.[Rr]e[Ss]harper
 *.DotSettings.user
 
@@ -364,7 +366,7 @@ paket-files/
 .fake/
 
 # JetBrains Rider
-.Debug/
+*/bin
 .idea/
 *.sln.iml
 
