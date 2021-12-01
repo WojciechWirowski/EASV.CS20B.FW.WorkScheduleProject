@@ -1742,19 +1742,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/Evens/.nuget/packages/": {}
+    "C:\\Users\\PC0\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/EASV.CS20B.FW.WorkScheduleProject.WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.WebApi\\EASV.CS20B.FW.WorkScheduleProject.WebApi.csproj",
       "projectName": "EASV.CS20B.FW.WorkScheduleProject.WebApi",
-      "projectPath": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/EASV.CS20B.FW.WorkScheduleProject.WebApi.csproj",
-      "packagesPath": "/Users/Evens/.nuget/packages/",
-      "outputPath": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.WebApi/obj/",
+      "projectPath": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.WebApi\\EASV.CS20B.FW.WorkScheduleProject.WebApi.csproj",
+      "packagesPath": "C:\\Users\\PC0\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/Evens/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\PC0\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -1766,8 +1766,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.Database/EASV.CS20B.FW.WorkScheduleProject.Database.csproj": {
-              "projectPath": "/Users/Evens/EASV/3.semenster/Code/EASV.CS20B.FW.WorkScheduleProject/EASV.CS20B.FW.WorkScheduleProject.Database/EASV.CS20B.FW.WorkScheduleProject.Database.csproj"
+            "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.Database\\EASV.CS20B.FW.WorkScheduleProject.Database.csproj": {
+              "projectPath": "C:\\Users\\PC0\\RiderProjects\\EASV.CS20B.FW.WorkScheduleProject\\EASV.CS20B.FW.WorkScheduleProject.Database\\EASV.CS20B.FW.WorkScheduleProject.Database.csproj"
             }
           }
         }
@@ -1821,7 +1821,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\PC0\\.dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -16,7 +16,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             var mock = new Mock<IUserService>();
 
             var userService = mock.Object;
-            
+
             Assert.NotNull(userService);
         }
 
@@ -32,7 +32,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             var userService = mock.Object;
             var actual = userService.GetUsers();
             var expected = new List<User>();
-            Assert.Equal(expected,actual);
+            Assert.Equal(expected, actual);
         }
 
         #endregion
@@ -85,28 +85,28 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
                 Id = 1,
                 Name = "user"
             };
-            
+
             var mock = new Mock<IUserService>();
             var userService = mock.Object;
             mock.Setup(service => service.RemoveUser(1))
                 .Returns(user);
-            
+
             // Act
             var actual = userService.RemoveUser(1);
-            
+
             // Assert
-            Assert.Equal(user,actual);
+            Assert.Equal(user, actual);
         }
 
         #endregion
-        
+
         #region UpdateUserTest
 
         [Fact]
         public void IUserService_Update_ParameterUser_ReturnUser()
         {
             // Arrange
-            var user = new User()
+            var user = new User
             {
                 Id = 1,
                 Name = "Name1"
@@ -116,12 +116,12 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             var userService = mock.Object;
             mock.Setup(service => service.UpdateUser(user))
                 .Returns(user);
-            
+
             // Act
             var actual = userService.UpdateUser(user);
-            
+
             // Assert
-            Assert.Equal(user,actual);
+            Assert.Equal(user, actual);
         }
 
         #endregion

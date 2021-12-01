@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Xunit;
 
 namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
@@ -27,63 +26,46 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
         }
 
         [Fact]
-        public void WorkingSchedule_ShouldHaveEmployeesID()
+        public void WorkingSchedule_ShouldHaveDay()
         {
+            var dateTime = new DateTime();
             var workingSchedule = new WorkingSchedule()
             {
-                EmployeeId = 1
+                Day = 1
             };
-            Assert.Equal(1,workingSchedule.EmployeeId);
-        }
-        
-        
-        [Fact]
-        public void WorkingSchedule_ShouldHaveWeekDay()
-        {
-            var workingSchedule = new WorkingSchedule()
-            {
-                WeekDay = WeekDay.Monday
-            };
-            Assert.Equal(WeekDay.Monday,workingSchedule.WeekDay);
+            Assert.Equal(1, workingSchedule.Day);
         }
         
         [Fact]
         public void WorkingSchedule_ShouldHaveStartTime()
         {
-            var workingSchedule = new WorkingSchedule()
+            var hour = 15;
+            var workingSchedule = new WorkingSchedule
             {
-                StartTime = 17
+                StartTime = 15
             };
-            Assert.Equal(17,workingSchedule.StartTime);
+            Assert.Equal(15, workingSchedule.StartTime);
         }
         
         [Fact]
         public void WorkingSchedule_ShouldHaveEndTime()
         {
-            var workingSchedule = new WorkingSchedule()
+            var hour = 15;
+            var workingSchedule = new WorkingSchedule
             {
-                EndTime = 21
+                EndTime = 15
             };
-            Assert.Equal(21,workingSchedule.EndTime);
+            Assert.Equal(15, workingSchedule.EndTime);
         }
-        
+    
 
         #endregion
     }
 
-    public enum WeekDay
-    {
-        Monday,
-        TuesDay,
-        WednesDay
-    }
-
-
     public class WorkingSchedule
     {
         public int Id { get; set; }
-        public int EmployeeId { get; set; }
-        public WeekDay WeekDay { get; set; }
+        public int Day { get; set; }
         public int StartTime { get; set; }
         public int EndTime { get; set; }
     }
