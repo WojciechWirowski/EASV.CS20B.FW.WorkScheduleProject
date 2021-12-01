@@ -141,6 +141,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
         public void WorkingSchedule_EmployeeId_CanBeUpdate()
         {
             _workingSchedule.EmployeeId = 2;
+            
             Assert.Equal(2,_workingSchedule.EmployeeId);
         }
         
