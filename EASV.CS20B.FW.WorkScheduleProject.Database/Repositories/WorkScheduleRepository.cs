@@ -71,7 +71,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             };
         }
 
-        
         public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)
         {
             return _ctx.WorkingSchedules.Select(workingScheduleEntity => new WorkingSchedule
