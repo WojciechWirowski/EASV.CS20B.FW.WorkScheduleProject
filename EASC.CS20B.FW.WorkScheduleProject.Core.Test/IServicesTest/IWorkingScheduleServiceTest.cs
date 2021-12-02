@@ -125,11 +125,6 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
         
         /// <summary>
         /// this test the use one employee id can get all the working schedule by one employee
-        /// ********** NOTICE !!!!! *****
-        /// also can filter the result by week day, date from start time (sorting on month etc.).
-        ///
-        /// But here we don't need to thinking how to implement it. just make the necessary method.
-        /// we will implement it in service class 
         /// </summary>
         [Fact]
         public void IWorkingScheduleService_GetWorkingScheduleByEmployeeID_ReturnListOfWorkingSchedule()
@@ -142,19 +137,50 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
             var scheduleByEmployeeId = _workingScheduleService.Object.GetScheduleByEmployeeId(employeeId);
             Assert.Equal(scheduleByEmployeeId,workingSchedules);
         }
-
         
-        
+        /// <summary>
+        /// Test get the working schedule by date,
+        /// parameter is the date.
+        /// return list of schedule on all the employee who working at that date
+        /// </summary>
+        [Fact]
+        public void IWorkingScheduleService_GetWorkingScheduleByDate_ReturnListOfWorkingSchedule()
+        {
+            var workingSchedules = new List<WorkingSchedule>();
+            var date = new DateTime(2021,12,1);
+            _workingScheduleService
+                .Setup(service => service.GetScheduleByDate(date))
+                .Returns(workingSchedules);
+            var scheduleByDate = _workingScheduleService.Object.GetScheduleByDate(date);
+            Assert.Equal(scheduleByDate,workingSchedules);
+        }
 
+        /// <summary>
+        /// Test the service search working schedule by month.
+        /// parameter is month number
+        /// return all employee all the month working schedule
+        /// </summary>
+        [Fact]
+        public void IWorkingScheduleService_GetWorkingScheduleByMonth_ReturnListOfWorkingSchedule()
+        {
+            var workingSchedules = new List<WorkingSchedule>();
+            var addMonths = new DateTime().AddMonths(12);
+            _workingScheduleService
+                .Setup(service => service.GetScheduleByMonth(addMonths))
+                .Returns(workingSchedules);
+            var scheduleByMonth = _workingScheduleService.Object.GetScheduleByMonth(addMonths);
+            Assert.Equal(scheduleByMonth,workingSchedules);
+        }
+        
+        // ********** NOTICE !!!!! *****
+        // We can make more method for this service later if we need....
+        // So far i think it is enough....
+        // --------------- old note ------------------
+        // also can filter the result by week day, date from start time
+        // (sorting on month etc.).
+        // But here we don't need to thinking how to implement it. just make the necessary method.
+        // we will implement it in service class
         #endregion
-    }
-
-    public interface IWorkingScheduleService
-    {
-        WorkingSchedule Create(WorkingSchedule workingSchedule);
-        WorkingSchedule Modify(WorkingSchedule workingSchedule);
-        WorkingSchedule Delete(WorkingSchedule workingSchedule);
-        List<WorkingSchedule> GetAll();
-        List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId);
+        
     }
 }
