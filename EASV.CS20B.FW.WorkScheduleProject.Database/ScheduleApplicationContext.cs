@@ -10,5 +10,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database
         }
         
         public virtual DbSet<UserEntity> Users { get; set; }
+        public virtual DbSet<RecordEntity> Records { get; set; }
+        public virtual DbSet<WorkingScheduleEntity> WorkingSchedules { get; set; }
     }
 }

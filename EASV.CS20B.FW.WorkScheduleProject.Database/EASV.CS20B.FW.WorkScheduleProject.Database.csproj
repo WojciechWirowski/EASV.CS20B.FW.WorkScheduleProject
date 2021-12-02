@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EASC.CS20B.FW.WorkScheduleProject.Core.Test\EASC.CS20B.FW.WorkScheduleProject.Core.Test.csproj" />
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Core\EASV.CS20B.FW.WorkScheduleProject.Core.csproj" />
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Domain\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj" />
     </ItemGroup>

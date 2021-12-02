@@ -31,9 +31,9 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
             var dateTime = new DateTime();
             var workingSchedule = new WorkingSchedule()
             {
-                Day = 1
+                WeekDay = 1
             };
-            Assert.Equal(1, workingSchedule.Day);
+            Assert.Equal(1, workingSchedule.WeekDay);
         }
         
         [Fact]
@@ -65,8 +65,10 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
     public class WorkingSchedule
     {
         public int Id { get; set; }
-        public int Day { get; set; }
+        public int EmployeeId { get; set; }
+        public int WeekDay { get; set; }
         public int StartTime { get; set; }
         public int EndTime { get; set; }
+        
     }
 }
