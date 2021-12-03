@@ -46,7 +46,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
             var expected = new WorkingRecord()
             {
                 EmployeeId = 1,
-                CheckIn = DateTime.Now
+                CheckInTime = DateTime.Now
             };
             
             // setup the repository mock return the record
@@ -88,6 +88,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
             
         }
         
+        /// <summary>
+        /// this test the employee id is exist
+        /// </summary>
         [Fact]
         public void WorkingRecordService_CheckIn_ParaEmployeeId_NotExist_ThrowException()
         {
@@ -124,6 +127,27 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
                         .CheckIn(workingRecord));
             
             Assert.Equal("EmployeeId should be bigger than 0 when create a new record in service.",invalidDataException.Message);
+        }
+
+
+        /// <summary>
+        /// test the check in time is now. 
+        /// </summary>
+        [Fact]
+        public void WorkingRecordService_CheckIn_ParaCheckInTime_IsNow()
+        {
+            var dateTime = DateTime.Now;
+            var workingRecord = new WorkingRecord()
+            {
+                EmployeeId = 1,
+                CheckInTime = dateTime
+            };
+            _workingRecordRepository
+                .Setup(repository => repository.Create(workingRecord))
+                .Returns(workingRecord);
+            
+            var checkIn = _workingRecordService.CheckIn(workingRecord);
+            Assert.Equal(dateTime,checkIn.CheckInTime);
         }
     }
 }
