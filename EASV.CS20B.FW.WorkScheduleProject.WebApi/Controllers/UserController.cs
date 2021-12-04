@@ -13,7 +13,5 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         {
             _service = userService;
         }
-        
-        
     }
 }
