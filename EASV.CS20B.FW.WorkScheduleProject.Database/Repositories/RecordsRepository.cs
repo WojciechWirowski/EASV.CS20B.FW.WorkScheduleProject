@@ -18,67 +18,62 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord()
             {
                 Id = recordEntity.Id,
-               Date = recordEntity.Date,
-               TimeIn = recordEntity.TimeIn,
-               TimeOut = recordEntity.TimeOut,
-               UserId = recordEntity.UserId
+                EmployeeId = recordEntity.EmployeeId,
+                CheckInTime = recordEntity.CheckInTime,
+                CheckOutTime = recordEntity.CheckOutTime
             });
             return selectQuery.ToList();
         }
 
-        public Record CreateRecord(Record record)
+        public WorkingRecord CreateRecord(WorkingRecord record)
         {
             RecordEntity recordEntity = new RecordEntity
             {
                 Id = record.Id,
-                Date = record.Date,
-                TimeIn = record.TimeIn,
-                TimeOut = record.TimeOut,
-                UserId = record.UserId
+                EmployeeId = record.EmployeeId,
+                CheckInTime = record.CheckInTime,
+                CheckOutTime = record.CheckOutTime
             };
             _ctx.Records.Add(recordEntity);
             _ctx.SaveChanges();
             return record;
         }
 
-        public Record Modify(Record record)
+        public WorkingRecord Modify(WorkingRecord record)
         {
             RecordEntity recordEntity = new RecordEntity
             {
                 Id = record.Id,
-                Date = record.Date,
-                TimeIn = record.TimeIn,
-                TimeOut = record.TimeOut,
-                UserId = record.UserId
+                EmployeeId = record.EmployeeId,
+                CheckInTime = record.CheckInTime,
+                CheckOutTime = record.CheckOutTime
             };
             _ctx.Records.Update(recordEntity);
             _ctx.SaveChanges();
             return record;
         }
         
-        public Record Delete(int id)
+        public WorkingRecord Delete(int id)
         {
             var entity = _ctx.Records.Remove(new RecordEntity {Id = id}).Entity;
             _ctx.SaveChanges();
-            return new Record
+            return new WorkingRecord
             {
                 Id = entity.Id,
-                Date = entity.Date,
-                TimeIn = entity.TimeIn,
-                TimeOut = entity.TimeOut,
-                UserId = entity.UserId
+                EmployeeId = entity.EmployeeId,
+                CheckInTime = entity.CheckInTime,
+                CheckOutTime = entity.CheckOutTime
             };
         }
 
-        public Record GetById(int id)
+        public WorkingRecord GetById(int id)
         {
-            var selectQuery = _ctx.Records.Select(recordEntity => new Record
+            var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
             {
                 Id = recordEntity.Id,
-                Date = recordEntity.Date,
-                TimeIn = recordEntity.TimeIn,
-                TimeOut = recordEntity.TimeOut,
-                UserId = recordEntity.UserId
+                EmployeeId = recordEntity.EmployeeId,
+                CheckInTime = recordEntity.CheckInTime,
+                CheckOutTime = recordEntity.CheckOutTime
             }).FirstOrDefault(r => r.Id == id);
             return selectQuery;
         }

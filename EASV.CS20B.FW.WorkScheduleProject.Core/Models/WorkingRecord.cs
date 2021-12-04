@@ -10,5 +10,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.Models
         public DateTime CheckOutTime { get; set; }
         public TimeSpan WorkingHours { get; set; }
         
+        
     }
 }
