@@ -22,7 +22,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
                 Id = 1,
                 EmployeeId = 1,
                 WeekDay = DayOfWeek.Monday,
-                StartTime = new TimeSpan(15, 0, 0),
+                StartTime = new DateTime().AddHours(15),
                 EndTime = new TimeSpan(20, 0, 0)
             };
         }
@@ -98,7 +98,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
         [Fact]
         public void WorkingSchedule_ShouldHaveStartTime()
         {
-            var timeOfDay = new DateTime().AddHours(15).AddMinutes(30).TimeOfDay;
+            var timeOfDay = new DateTime().AddHours(15).AddMinutes(30);
             var workingSchedule = new WorkingSchedule()
             {
                 StartTime = timeOfDay
@@ -155,8 +155,9 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
         [Fact]
         public void WorkingSchedule_StartTime_CanBeUpdate()
         {
-            _workingSchedule.StartTime = TimeSpan.MinValue;
-            Assert.Equal(TimeSpan.MinValue,_workingSchedule.StartTime);
+            var dateTime = DateTime.Now;
+            _workingSchedule.StartTime = dateTime;
+            Assert.Equal(dateTime, _workingSchedule.StartTime);
         }
         
         [Fact]

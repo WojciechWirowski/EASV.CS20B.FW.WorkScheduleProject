@@ -24,7 +24,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.Models
         /// <summary>
         /// The start time is one specific employee in one specific day show be start work at which time
         /// </summary>
-        public TimeSpan StartTime { get; set; }
+        public DateTime StartTime { get; set; }
        
         /// <summary>
         /// The end time is one specific employee in one specific day show be finish work at which time
