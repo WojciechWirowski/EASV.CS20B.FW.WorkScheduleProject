@@ -46,9 +46,9 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
             var dateTime = DateTime.Now;
             var workingRecord = new WorkingRecord()
             {
-                CheckIn = dateTime
+                CheckInTime = dateTime
             };
-            Assert.Equal(dateTime,workingRecord.CheckIn);
+            Assert.Equal(dateTime,workingRecord.CheckInTime);
         }
 
         [Fact]
@@ -57,9 +57,9 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
             var dateTime = DateTime.Now;
             var workingRecord = new WorkingRecord()
             {
-                CheckOut = dateTime
+                CheckOutTime = dateTime
             };  
-            Assert.Equal(dateTime,workingRecord.CheckOut);
+            Assert.Equal(dateTime,workingRecord.CheckOutTime);
         }
 
         [Fact]

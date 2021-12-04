@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
@@ -8,44 +9,38 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 {
     public class WorkingRecordService: IWorkingRecordService
     {
-        private readonly IUserRepository _userRepository;
         private readonly IWorkingRecordRepository _workingRecordRepository;
+        private IUserRepository _userRepository;
 
-        public WorkingRecordService(IUserRepository userRepository, IWorkingRecordRepository workingRecordRepository)
+        public WorkingRecordService(IWorkingRecordRepository workingRecordRepository, IUserRepository userRepository)
         {
-            _userRepository = userRepository;
-            _workingRecordRepository = workingRecordRepository;
+            _workingRecordRepository 
+                = workingRecordRepository ?? 
+                  throw new InvalidDataException(
+                      "The working record repository can not be null");
+            _userRepository 
+                = userRepository ??
+                  throw new InvalidDataException(
+                      "The user repository can not be null");
         }
+
+        
 
         public WorkingRecord CheckIn(WorkingRecord workingRecord)
         {
-            var userById = _userRepository.GetUserById(workingRecord.EmployeeId);
-            if (userById == null)
-            {
-                throw new Exception(" .... ");
-            }
-            workingRecord.CheckIn = DateTime.Now;
-
+            if (workingRecord.Id != null)
+                throw new InvalidDataException("Id should be null when create a new record in service.");
+            if (workingRecord.EmployeeId <= 0)
+                throw new InvalidDataException(
+                    "EmployeeId should be bigger than 0 when create a new record in service.");
+            if (_userRepository.GetUserById(workingRecord.EmployeeId) == null)
+                throw new InvalidDataException("EmployeeId should be exist.");
             return _workingRecordRepository.Create(workingRecord);
-
         }
 
         public WorkingRecord CheckOut(WorkingRecord workingRecord)
         {
-            // if the employee log in and then check in
-            // a new record will be create and store an id somewhere
-            // what ever the user log out or not. the id will be save
-            // if the user press check out then a new check out time will be create and insert into the record of id
-            
             throw new NotImplementedException();
-            
-            
-            // check in 
-            // CheckIn()
-            // Repo.Create() -> WorkingRecord
-            // check out
-            // WorkingRecord -> add checkout time.
-
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)
@@ -77,11 +72,5 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
         {
             throw new NotImplementedException();
         }
-    }
-
-    public interface IWorkingRecordRepository
-    {
-        WorkingRecord Create(WorkingRecord workingRecord);
-        WorkingRecord Get(WorkingRecord workingRecord);
     }
 }
