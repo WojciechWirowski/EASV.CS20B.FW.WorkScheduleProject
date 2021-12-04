@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.Database.Entities;
-using Xunit;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
 {
@@ -13,9 +13,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
         {
             _ctx = ctx;
         }
-        public List<RecordEntity> GetAllRecords()
+        public List<Record> GetAllRecords()
         {
-            var selectQuery = _ctx.Records.Select(recordEntity => new RecordEntity()
+            var selectQuery = _ctx.Records.Select(recordEntity => new Record()
             {
                 Id = recordEntity.Id,
                Date = recordEntity.Date,
@@ -26,7 +26,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return selectQuery.ToList();
         }
 
-        public RecordEntity CreateRecord(RecordEntity record)
+        public Record CreateRecord(Record record)
         {
             RecordEntity recordEntity = new RecordEntity
             {
@@ -41,7 +41,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return record;
         }
 
-        public RecordEntity Modify(RecordEntity record)
+        public Record Modify(Record record)
         {
             RecordEntity recordEntity = new RecordEntity
             {
@@ -56,11 +56,11 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return record;
         }
         
-        public RecordEntity Delete(int id)
+        public Record Delete(int id)
         {
             var entity = _ctx.Records.Remove(new RecordEntity {Id = id}).Entity;
             _ctx.SaveChanges();
-            return new RecordEntity
+            return new Record
             {
                 Id = entity.Id,
                 Date = entity.Date,
@@ -70,9 +70,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             };
         }
 
-        public RecordEntity GetById(int id)
+        public Record GetById(int id)
         {
-            var selectQuery = _ctx.Records.Select(recordEntity => new RecordEntity()
+            var selectQuery = _ctx.Records.Select(recordEntity => new Record
             {
                 Id = recordEntity.Id,
                 Date = recordEntity.Date,
