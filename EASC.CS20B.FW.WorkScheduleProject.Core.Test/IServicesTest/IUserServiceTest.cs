@@ -4,7 +4,7 @@ using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Moq;
 using Xunit;
 
-namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
+namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
 {
     public class IUserServiceTest
     {
@@ -12,7 +12,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
         #region InterfaceAvaliableTest
 
         [Fact]
-        public void IUserService_IsAvilable()
+        public void IUserService_IsAvailable()
         {
             var mock = new Mock<IUserService>();
 
