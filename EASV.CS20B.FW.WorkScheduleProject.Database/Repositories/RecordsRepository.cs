@@ -13,9 +13,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
         {
             _ctx = ctx;
         }
-        public List<Record> GetAllRecords()
+        public List<WorkingRecord> GetAllRecords()
         {
-            var selectQuery = _ctx.Records.Select(recordEntity => new Record()
+            var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord()
             {
                 Id = recordEntity.Id,
                Date = recordEntity.Date,

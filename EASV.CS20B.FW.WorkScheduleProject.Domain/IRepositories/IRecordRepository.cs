@@ -5,15 +5,17 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
 {
     public interface IRecordRepository
     {
-        public List<Record> GetAllRecords();
+        public List<WorkingRecord> GetAllRecords();
 
-        public Record CreateRecord(Record record);
+        public WorkingRecord CreateRecord(WorkingRecord record);
 
-        public Record Modify(Record record);
+        public WorkingRecord Modify(WorkingRecord record);
         
-        public Record Delete(int id);
+        public WorkingRecord Delete(int id);
         
 
-        public Record GetById(int id);
+        public WorkingRecord GetById(int id);
+
+        public WorkingRecord GetByEmplyeeId(int id);
     }
 }
