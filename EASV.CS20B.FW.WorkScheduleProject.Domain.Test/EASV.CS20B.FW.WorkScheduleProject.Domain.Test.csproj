@@ -18,4 +18,8 @@
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Domain\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="ServiceTest\WorkingRecordServiceTest\WorkingRecordService_OtherFeature.cs" />
+    </ItemGroup>
+
 </Project>
