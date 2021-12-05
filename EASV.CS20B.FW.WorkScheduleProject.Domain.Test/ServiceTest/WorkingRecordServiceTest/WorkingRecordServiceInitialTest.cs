@@ -1,4 +1,5 @@
 using System.IO;
+using EASV.CS20B.FW.WorkScheduleProject.Core.ExceptionMessage;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.Services;
@@ -12,15 +13,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
     /// </summary>
     public class WorkingRecordServiceInitialTest
     {
-        private readonly IWorkingRecordRepository _workingRecordRepository;
+        private readonly Mock<IWorkingRecordRepository> _workingRecordRepository;
         private readonly Mock<IUserRepository> _userRepository;
         private readonly WorkingRecordService _workingRecordService;
 
         public WorkingRecordServiceInitialTest()
         {
             _userRepository = new Mock<IUserRepository>();
-            _workingRecordRepository = new Mock<IWorkingRecordRepository>().Object;
-            _workingRecordService = new WorkingRecordService(_workingRecordRepository,_userRepository.Object);
+            _workingRecordRepository = new Mock<IWorkingRecordRepository>();
+            _workingRecordService = new WorkingRecordService(_userRepository.Object,_workingRecordRepository.Object);
         }
         
         /// <summary>
@@ -49,7 +50,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
         public void WorkingRecordService_WithNullWorkingRecordRepository_ThrowInValidDataException_WithMessage()
         {
             var invalidDataException = Assert.Throws<InvalidDataException>(
-                () => new WorkingRecordService(null,_userRepository.Object)
+                () => new WorkingRecordService(_userRepository.Object,null)
             );
             Assert.Equal("The working record repository can not be null",invalidDataException.Message);
         }
@@ -62,9 +63,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
         public void WorkingRecordService_WithNullUserRepository_ThrowInValidDataException_WithMessage()
         {
             var invalidDataException = Assert.Throws<InvalidDataException>(
-                () => new WorkingRecordService(_workingRecordRepository,null)
+                () => new WorkingRecordService(null,_workingRecordRepository.Object)
             );
-            Assert.Equal("The user repository can not be null",invalidDataException.Message);
+            Assert.Equal(DiCanNotNullExceptionMessage.UserRepositoryCanNotNull,invalidDataException.Message);
         }
     }
 }

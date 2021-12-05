@@ -7,7 +7,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.Models
         /// <summary>
         /// The ID property is serials number for each record of working schedule
         /// </summary>
-        public int Id { get; set; }
+        public int? Id { get; set; }
         
         /// <summary>
         /// The EmployeeId is personal unique number of each employee

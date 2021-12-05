@@ -22,7 +22,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Test.ServiceTest.WorkingRecor
         {
             _userRepository = new Mock<IUserRepository>();
             _workingRecordRepository = new Mock<IWorkingRecordRepository>();
-            _workingRecordService = new WorkingRecordService(_workingRecordRepository.Object, _userRepository.Object);
+            _workingRecordService = new WorkingRecordService(_userRepository.Object,_workingRecordRepository.Object);
 
             // Setup the mock object when we invoke the userRepository.GetUserById
             // in the range 1-4 (which means the employee id is in this range)
