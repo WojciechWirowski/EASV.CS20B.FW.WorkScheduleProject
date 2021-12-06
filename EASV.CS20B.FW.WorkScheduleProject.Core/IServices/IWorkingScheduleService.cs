@@ -61,8 +61,8 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
         /// <summary>
         /// get list of schedule by month
         /// </summary>
-        /// <param name="addMonths">the months number</param>
+        /// <param name="yearAndMonth">the months number</param>
         /// <returns>list of schedule in this month</returns>
-        List<WorkingSchedule> GetScheduleByMonth(DateTime addMonths);
+        List<WorkingSchedule> GetScheduleByMonth(DateTime yearAndMonth);
     }
 }

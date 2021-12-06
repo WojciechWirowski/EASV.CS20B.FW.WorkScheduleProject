@@ -125,12 +125,14 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
         [Fact]
         public void IWorkingRecordTest_GetById_ParaId_ReturnRecord()
         {
-            var Id = 1;
-            var workingRecord = new WorkingRecord();
+            var workingRecord = new WorkingRecord()
+            {
+                Id = 1
+            };
             _iWorkingRecordMock
-                .Setup(service => service.GetById(Id))
+                .Setup(service => service.GetById(workingRecord))
                 .Returns(workingRecord);
-            var byId = _iWorkingRecordMock.Object.GetById(Id);
+            var byId = _iWorkingRecordMock.Object.GetById(workingRecord);
             Assert.Equal(byId,workingRecord);
 
         }
@@ -142,14 +144,17 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
         /// </summary>
         [Fact]
         public void IWorkingRecordTest_GetByEmployeeId_ParaRecord_ReturnListOfRecord()
-        {   
-            var employeeId = 1;
-            var workingRecords = new List<WorkingRecord>();
+        {
+            var workingRecord = new WorkingRecord()
+            {
+                EmployeeId = 1
+            };
+            var expect = new List<WorkingRecord>();
             _iWorkingRecordMock
-                .Setup(service => service.GetByEmployeeId(employeeId))
-                .Returns(workingRecords);
-            var workingRecord = _iWorkingRecordMock.Object.GetByEmployeeId(employeeId);
-            Assert.Equal(workingRecord,workingRecords);
+                .Setup(service => service.GetByEmployeeId(workingRecord))
+                .Returns(expect);
+            var actual = _iWorkingRecordMock.Object.GetByEmployeeId(workingRecord);
+            Assert.Equal(actual,expect);
 
         }
         
@@ -162,11 +167,15 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
         public void IWorkingRecordTest_GetByDate_ParaDate_ReturnListOfRecord()
         {
             var dateTime = new DateTime(2021,12,1);
+            var workingRecord = new WorkingRecord()
+            {
+                CheckInTime = dateTime
+            };
             var workingRecords = new List<WorkingRecord>();
             _iWorkingRecordMock
-                .Setup(service => service.GetByDate(dateTime))
+                .Setup(service => service.GetByDate(workingRecord))
                 .Returns(workingRecords);
-            var byDate = _iWorkingRecordMock.Object.GetByDate(dateTime);
+            var byDate = _iWorkingRecordMock.Object.GetByDate(workingRecord);
             Assert.Equal(byDate,workingRecords);
 
         }

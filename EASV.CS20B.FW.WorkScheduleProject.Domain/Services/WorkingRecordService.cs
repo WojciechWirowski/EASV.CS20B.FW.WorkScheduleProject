@@ -44,37 +44,41 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingRecord CheckOut(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            var readById = _workingRecordRepository.ReadById(workingRecord.Id);
+            if (readById == null)
+                throw new Exception("The working record are not exist.");
+            readById.CheckOutTime = workingRecord.CheckOutTime;
+            return _workingRecordRepository.Update(readById);
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.Update(workingRecord);
         }
 
         public WorkingRecord Delete(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.Delete(workingRecord);
         }
 
         public List<WorkingRecord> GetAll()
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.ReadAll();
         }
 
-        public WorkingRecord GetById(int id)
+        public WorkingRecord GetById(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.ReadById(workingRecord.Id);
         }
 
-        public List<WorkingRecord> GetByEmployeeId(int employeeId)
+        public List<WorkingRecord> GetByEmployeeId(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.ReadByEmployeeId(workingRecord.EmployeeId); 
         }
 
-        public List<WorkingRecord> GetByDate(DateTime dateTime)
+        public List<WorkingRecord> GetByDate(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.ReadByDate(workingRecord.CheckInTime);
         }
     }
 }

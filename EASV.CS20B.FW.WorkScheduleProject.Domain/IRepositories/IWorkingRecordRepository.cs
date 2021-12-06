@@ -7,11 +7,11 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
     public interface IWorkingRecordRepository
     {
         WorkingRecord Create(WorkingRecord workingRecord);
-        public WorkingRecord Update(WorkingRecord record);
-        public WorkingRecord Delete(int id);
+        public WorkingRecord Update(WorkingRecord workingRecord);
+        public WorkingRecord Delete(WorkingRecord workingRecord);
         public List<WorkingRecord> ReadAll();
-        public WorkingRecord ReadById(int id);
-        public WorkingRecord ReadByEmployeeId(int id);
-        public WorkingRecord ReadByDate(DateTime dateTime);
+        public WorkingRecord ReadById(int? id);
+        public List<WorkingRecord> ReadByEmployeeId(int id);
+        public List<WorkingRecord> ReadByDate(DateTime dateTime);
     }
 }

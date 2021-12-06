@@ -31,12 +31,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
                 throw new InvalidDataException("The employee are not exist. ");
 
             var scheduleByEmployeeId 
-                = _workingScheduleRepository.ReadScheduleByEmployeeId(workingSchedule.EmployeeId);
-            var schedule
+                = _workingScheduleRepository
+                    .ReadScheduleByEmployeeId(workingSchedule.EmployeeId);
+            
+            var schedulesOfThisEmployeeAtThisDay
                 = scheduleByEmployeeId
                     .FindAll(date => workingSchedule.StartTime.Date == date.StartTime.Date)
                     .ToList();
-            if (schedule != null)
+            
+            if (schedulesOfThisEmployeeAtThisDay != null)
                 throw new InvalidDataException("This employee have set a schedule on this time.");
             
             return _workingScheduleRepository.Create(workingSchedule);
@@ -72,13 +75,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             return _workingScheduleRepository.ReadScheduleByDate(date);
         }
 
-        public List<WorkingSchedule> GetScheduleByMonth(DateTime addMonths)
+        public List<WorkingSchedule> GetScheduleByMonth(DateTime yearAndMonth)
         {
             var workingSchedules = new List<WorkingSchedule>();
-            var daysInMonth = DateTime.DaysInMonth(addMonths.Year, addMonths.Month);
+            
+            var daysInMonth = DateTime.DaysInMonth(yearAndMonth.Year, yearAndMonth.Month);
+            
             for (int i = 0; i < daysInMonth; i++)
             {
-                var dateTime = addMonths.AddDays(i + 1);
+                var dateTime = yearAndMonth.AddDays(i + 1);
                 var scheduleByDate = GetScheduleByDate(dateTime);
                 workingSchedules.AddRange(scheduleByDate);
             }
