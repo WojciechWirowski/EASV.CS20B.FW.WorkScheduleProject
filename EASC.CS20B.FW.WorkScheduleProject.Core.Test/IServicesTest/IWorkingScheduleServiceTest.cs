@@ -100,10 +100,10 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
         public void IWorkingScheduleService_Delete_ParaWorkingSchedule_ReturnWorkingSchedule()
         {
             _workingScheduleService
-                .Setup(service => service.Delete(_workingSchedule))
+                .Setup(service => service.Remove(_workingSchedule))
                 .Returns(_workingSchedule);
 
-            var schedule = _workingScheduleService.Object.Delete(_workingSchedule);
+            var schedule = _workingScheduleService.Object.Remove(_workingSchedule);
 
             Assert.Equal(_workingSchedule, schedule);
         }
