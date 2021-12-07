@@ -11,7 +11,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
     public class WorkingRecordService: IWorkingRecordService
     {
         private readonly IWorkingRecordRepository _workingRecordRepository;
-        private IUserRepository _userRepository;
+        private readonly IUserRepository _userRepository;
 
         public WorkingRecordService(IUserRepository userRepository, IWorkingRecordRepository workingRecordRepository)
         {
@@ -30,7 +30,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             if (workingRecord.Id != null)
                 throw new InvalidDataException("Id should be null when create a new record in service.");
             
-            // if employee id is smaller than 1 then that is not make sence
+            // if employee id is smaller than 1 then that is not make sense
             if (workingRecord.EmployeeId <= 0)
                 throw new InvalidDataException(
                     "EmployeeId should be bigger than 0 when create a new record in service.");

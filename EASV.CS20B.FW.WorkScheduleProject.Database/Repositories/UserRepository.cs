@@ -9,7 +9,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly ScheduleApplicationContext _ctx;
-        private List<UserEntity> _users = new List<UserEntity>();
 
         public UserRepository(ScheduleApplicationContext ctx)
         {

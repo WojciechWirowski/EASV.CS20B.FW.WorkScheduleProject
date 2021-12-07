@@ -8,7 +8,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest
     {
         WorkingSchedule Create(WorkingSchedule workingSchedule);
         WorkingSchedule Modify(WorkingSchedule workingSchedule);
-        WorkingSchedule Delete(WorkingSchedule workingSchedule);
+        WorkingSchedule Delete(int workingSchedule);
         List<WorkingSchedule> GetAll();
         List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId);
         List<WorkingSchedule> GetScheduleByDate(DateTime date);

@@ -1,19 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EASC.CS20B.FW.WorkScheduleProject.ModelTest;
 using EASV.CS20B.FW.WorkScheduleProject.Database.Entities;
+using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
+using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
 {
-    public class WorkingScheduleRepository
+    public class WorkingScheduleRepository : IWorkingScheduleRepository
     {
         private readonly ScheduleApplicationContext _ctx;
-        private List<WorkingScheduleEntity> _scheduleEntities;
 
         public WorkingScheduleRepository(ScheduleApplicationContext ctx)
         {
             _ctx = ctx;
+        }
+        
+        public WorkingSchedule GetWorkingScheduleByEmployeeIdAndDayOfWeek(WorkingSchedule workingSchedule)
+        {
+            var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
+            {
+                Id = scheduleEntity.Id,
+                EmployeeId = scheduleEntity.EmployeeId,
+                WeekDay = scheduleEntity.WeekDay,
+                StartTime = scheduleEntity.StartTime,
+                EndTime = scheduleEntity.EndTime
+            }).FirstOrDefault(schedule =>
+                schedule.EmployeeId == workingSchedule.EmployeeId && schedule.WeekDay == workingSchedule.WeekDay);
+            return selectQuery;
         }
 
         public List<WorkingSchedule> GetAll()
@@ -28,6 +42,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             });
             return selectQuery.ToList();
         }
+
         public WorkingSchedule Create(WorkingSchedule workingSchedule)
         {
             WorkingScheduleEntity workingScheduleEntity = new WorkingScheduleEntity
@@ -42,6 +57,33 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return workingSchedule;
         }
+
+        public List<WorkingSchedule> GetWorkingScheduleByEmployeeId(int employeeId){
+            return _ctx.WorkingSchedules.Select(workingScheduleEntity => new WorkingSchedule
+            {
+                Id = workingScheduleEntity.Id,
+                EmployeeId = workingScheduleEntity.EmployeeId,
+                WeekDay = workingScheduleEntity.WeekDay,
+                StartTime = workingScheduleEntity.StartTime,
+                EndTime = workingScheduleEntity.EndTime
+            }).Where(s => s.Id == employeeId).ToList();
+        }
+
+        public List<WorkingSchedule> GetScheduleByDate(DateTime date)
+        {
+            {
+                DayOfWeek dayOfWeek = date.DayOfWeek;
+                return _ctx.WorkingSchedules.Select(workingScheduleEntity => new WorkingSchedule
+                {
+                    Id = workingScheduleEntity.Id,
+                    EmployeeId = workingScheduleEntity.EmployeeId,
+                    WeekDay = workingScheduleEntity.WeekDay,
+                    StartTime = workingScheduleEntity.StartTime,
+                    EndTime = workingScheduleEntity.EndTime
+                }).Where(s => s.WeekDay == dayOfWeek).ToList();
+            }
+        }
+
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
         {
             var entity = new WorkingScheduleEntity()
@@ -69,18 +111,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 StartTime = entity.StartTime,
                 EndTime = entity.EndTime
             };
-        }
-
-        public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)
-        {
-            return _ctx.WorkingSchedules.Select(workingScheduleEntity => new WorkingSchedule
-            {
-                Id = workingScheduleEntity.Id,
-                EmployeeId = workingScheduleEntity.EmployeeId,
-                WeekDay = workingScheduleEntity.WeekDay,
-                StartTime = workingScheduleEntity.StartTime,
-                EndTime = workingScheduleEntity.EndTime
-            }).Where(s => s.Id == employeeId).ToList();
         }
     }
 }

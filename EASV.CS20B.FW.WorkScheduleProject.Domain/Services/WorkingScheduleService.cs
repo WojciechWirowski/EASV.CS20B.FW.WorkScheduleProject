@@ -29,7 +29,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             if (_userRepository.GetUserById(workingSchedule.EmployeeId) == null)
                 throw new InvalidDataException("The employee are not exist. ");
             
-            if (_workingScheduleRepository.GetWorkingScheduleByEmployeeIdAndStartTime(workingSchedule) != null)
+            if (workingSchedule.StartTime != null)
                 throw new InvalidDataException("This employee have set a schedule on this time.");
             
             return _workingScheduleRepository.Create(workingSchedule);
@@ -37,38 +37,32 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
         {
-            throw new NotImplementedException();
+            return _workingScheduleRepository.Modify(workingSchedule);
         }
 
-        public WorkingSchedule Delete(WorkingSchedule workingSchedule)
+        public WorkingSchedule Delete(int id)
         {
-            throw new NotImplementedException();
+            return _workingScheduleRepository.Delete(id);
         }
 
         public List<WorkingSchedule> GetAll()
         {
-            throw new NotImplementedException();
+            return _workingScheduleRepository.GetAll();
         }
 
         public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)
         {
-            throw new NotImplementedException();
+            return _workingScheduleRepository.GetWorkingScheduleByEmployeeId(employeeId);
         }
 
         public List<WorkingSchedule> GetScheduleByDate(DateTime date)
         {
-            throw new NotImplementedException();
+            return _workingScheduleRepository.GetScheduleByDate(date);
         }
 
         public List<WorkingSchedule> GetScheduleByMonth(DateTime addMonths)
         {
             throw new NotImplementedException();
         }
-    }
-
-    public interface IWorkingScheduleRepository
-    {
-        WorkingSchedule Create(WorkingSchedule workingSchedule);
-        WorkingSchedule GetWorkingScheduleByEmployeeIdAndStartTime(WorkingSchedule workingSchedule);
     }
 }

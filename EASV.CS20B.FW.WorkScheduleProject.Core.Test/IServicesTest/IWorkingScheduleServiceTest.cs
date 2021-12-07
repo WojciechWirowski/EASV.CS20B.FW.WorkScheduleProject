@@ -5,7 +5,7 @@ using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Moq;
 using Xunit;
 
-namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
+namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
 {
     public class IWorkingScheduleServiceTest
     {
@@ -27,7 +27,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
                 EmployeeId = 1,
                 WeekDay = DayOfWeek.Monday,
                 StartTime = new DateTime().AddHours(15),
-                EndTime = new TimeSpan(21, 0, 0)
+                EndTime = new DateTime(21, 0, 0)
             };
 
         }
@@ -55,7 +55,7 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
             // Arrange
             // get the new working schedule form constructor
 
-            // setup mock method pass in the schedule and return the schedul
+            // setup mock method pass in the schedule and return the schedule
             _workingScheduleService
                 .Setup(service => service.Create(_workingSchedule))
                 .Returns(_workingSchedule);
@@ -100,10 +100,10 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
         public void IWorkingScheduleService_Delete_ParaWorkingSchedule_ReturnWorkingSchedule()
         {
             _workingScheduleService
-                .Setup(service => service.Delete(_workingSchedule))
+                .Setup(service => service.Delete(1))
                 .Returns(_workingSchedule);
 
-            var schedule = _workingScheduleService.Object.Delete(_workingSchedule);
+            var schedule = _workingScheduleService.Object.Delete(1);
 
             Assert.Equal(_workingSchedule, schedule);
         }

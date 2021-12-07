@@ -16,6 +16,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
 
         public WorkingRecord GetById(int id);
 
-        public WorkingRecord GetByEmplyeeId(int id);
+        public WorkingRecord GetByEmployeeId(int id);
     }
 }

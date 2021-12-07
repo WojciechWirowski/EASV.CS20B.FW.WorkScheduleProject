@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20B.FW.WorkScheduleP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20B.FW.WorkScheduleProject.Domain.Test", "EASV.CS20B.FW.WorkScheduleProject.Domain.Test\EASV.CS20B.FW.WorkScheduleProject.Domain.Test.csproj", "{FE6C3295-8998-4CC6-9F52-91A197B9DE8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASC.CS20B.FW.WorkScheduleProject.Core.Test", "EASC.CS20B.FW.WorkScheduleProject.Core.Test\EASC.CS20B.FW.WorkScheduleProject.Core.Test.csproj", "{27FC6C3E-286B-4061-9022-4A9B5BD1F30C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EASV.CS20B.FW.WorkScheduleProject.Core.Test", "EASV.CS20B.FW.WorkScheduleProject.Core.Test\EASV.CS20B.FW.WorkScheduleProject.Core.Test.csproj", "{27FC6C3E-286B-4061-9022-4A9B5BD1F30C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

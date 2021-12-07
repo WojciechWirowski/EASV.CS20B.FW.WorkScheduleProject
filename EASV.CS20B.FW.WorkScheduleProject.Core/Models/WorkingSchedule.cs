@@ -29,7 +29,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.Models
         /// <summary>
         /// The end time is one specific employee in one specific day show be finish work at which time
         /// </summary>
-        public TimeSpan EndTime { get; set; }
+        public DateTime EndTime { get; set; }
 
     }
 }
