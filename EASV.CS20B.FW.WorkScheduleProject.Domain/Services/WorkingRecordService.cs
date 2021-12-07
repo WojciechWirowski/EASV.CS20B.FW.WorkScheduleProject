@@ -44,37 +44,37 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingRecord CheckOut(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.Modify(workingRecord);
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+           return _workingRecordRepository.Modify(workingRecord);
         }
 
         public WorkingRecord Delete(WorkingRecord workingRecord)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.Delete((int) workingRecord.Id);
         }
 
         public List<WorkingRecord> GetAll()
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.GetAllRecords();
         }
 
         public WorkingRecord GetById(int id)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.GetById(id);
         }
 
         public List<WorkingRecord> GetByEmployeeId(int employeeId)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.GetByEmployeeId(employeeId);
         }
 
         public List<WorkingRecord> GetByDate(DateTime dateTime)
         {
-            throw new NotImplementedException();
+            return _workingRecordRepository.GetByDate(dateTime);
         }
     }
 }

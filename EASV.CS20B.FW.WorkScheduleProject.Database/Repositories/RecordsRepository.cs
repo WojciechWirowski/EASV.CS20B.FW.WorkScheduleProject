@@ -1,11 +1,13 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.Database.Entities;
+using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
 {
-    public class RecordsRepository
+    public class RecordsRepository :IWorkingRecordRepository
     {
         private readonly ScheduleApplicationContext _ctx;
 
@@ -13,6 +15,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
         {
             _ctx = ctx;
         }
+
         public List<WorkingRecord> GetAllRecords()
         {
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord()
@@ -25,7 +28,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return selectQuery.ToList();
         }
 
-        public WorkingRecord CreateRecord(WorkingRecord record)
+        public WorkingRecord Create(WorkingRecord record)
         {
             RecordEntity recordEntity = new RecordEntity
             {
@@ -76,6 +79,30 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 CheckOutTime = recordEntity.CheckOutTime
             }).FirstOrDefault(r => r.Id == id);
             return selectQuery;
+        }
+
+        public List<WorkingRecord> GetByEmployeeId(int id)
+        {
+            var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
+            {
+                Id = recordEntity.Id,
+                EmployeeId = recordEntity.EmployeeId,
+                CheckInTime = recordEntity.CheckInTime,
+                CheckOutTime = recordEntity.CheckOutTime
+            }).Where(w => w.EmployeeId == id).ToList();
+            return selectQuery;
+        }
+
+        public List<WorkingRecord> GetByDate(DateTime dateTime)
+        {
+            return _ctx.Records.Select(recordEntity => new WorkingRecord
+            {
+                Id = recordEntity.Id,
+                CheckInTime = recordEntity.CheckInTime,
+                CheckOutTime = recordEntity.CheckOutTime,
+                EmployeeId = recordEntity.EmployeeId,
+                WorkingHours = recordEntity.WorkingHours
+            }).Where(r => r.CheckInTime.ToString("yy-MM-dd") == dateTime.ToString("yy-MM-dd")).ToList();
         }
     }
 }
