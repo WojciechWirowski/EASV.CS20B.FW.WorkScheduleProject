@@ -44,41 +44,41 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingRecord CheckOut(WorkingRecord workingRecord)
         {
-            var readById = _workingRecordRepository.ReadById(workingRecord.Id);
+            var readById = _workingRecordRepository.GetById(workingRecord.Id);
             if (readById == null)
                 throw new Exception("The working record are not exist.");
             readById.CheckOutTime = workingRecord.CheckOutTime;
-            return _workingRecordRepository.Update(readById);
+            return _workingRecordRepository.Modify(readById);
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)
         {
-            return _workingRecordRepository.Update(workingRecord);
+            return _workingRecordRepository.Modify(workingRecord);
         }
 
         public WorkingRecord Delete(WorkingRecord workingRecord)
         {
-            return _workingRecordRepository.Delete(workingRecord);
+            return _workingRecordRepository.Delete(workingRecord.Id);
         }
 
         public List<WorkingRecord> GetAll()
         {
-            return _workingRecordRepository.ReadAll();
+            return _workingRecordRepository.GetAllRecords();
         }
 
         public WorkingRecord GetById(WorkingRecord workingRecord)
         {
-            return _workingRecordRepository.ReadById(workingRecord.Id);
+            return _workingRecordRepository.GetById(workingRecord.Id);
         }
 
         public List<WorkingRecord> GetByEmployeeId(WorkingRecord workingRecord)
         {
-            return _workingRecordRepository.ReadByEmployeeId(workingRecord.EmployeeId); 
+            return _workingRecordRepository.GetByEmployeeId(workingRecord.EmployeeId); 
         }
 
         public List<WorkingRecord> GetByDate(WorkingRecord workingRecord)
         {
-            return _workingRecordRepository.ReadByDate(workingRecord.CheckInTime);
+            return _workingRecordRepository.GetByDate(workingRecord.CheckInTime);
         }
     }
 }

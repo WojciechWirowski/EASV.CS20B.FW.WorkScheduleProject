@@ -12,10 +12,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
 
         public WorkingRecord Modify(WorkingRecord record);
         
-        public WorkingRecord Delete(int id);
+        public WorkingRecord Delete(int? id);
         
 
-        public WorkingRecord GetById(int id);
+        public WorkingRecord GetById(int? id);
 
         public List<WorkingRecord> GetByEmployeeId(int id);
         List<WorkingRecord> GetByDate(DateTime dateTime);

@@ -56,7 +56,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return record;
         }
         
-        public WorkingRecord Delete(int id)
+        public WorkingRecord Delete(int? id)
         {
             var entity = _ctx.Records.Remove(new RecordEntity {Id = id}).Entity;
             _ctx.SaveChanges();
@@ -69,7 +69,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             };
         }
 
-        public WorkingRecord GetById(int id)
+        public WorkingRecord GetById(int? id)
         {
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
             {

@@ -32,7 +32,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
             var scheduleByEmployeeId 
                 = _workingScheduleRepository
-                    .ReadScheduleByEmployeeId(workingSchedule.EmployeeId);
+                    .GetWorkingScheduleByEmployeeId(workingSchedule.EmployeeId);
             
             var schedulesOfThisEmployeeAtThisDay
                 = scheduleByEmployeeId
@@ -47,17 +47,19 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
         {
-            return _workingScheduleRepository.Update(workingSchedule);
+            return _workingScheduleRepository.Modify(workingSchedule);
         }
 
-        public WorkingSchedule Remove(WorkingSchedule workingSchedule)
+      
+
+        public WorkingSchedule Delete(int? id)
         {
-            return _workingScheduleRepository.Delete(workingSchedule);
+            return _workingScheduleRepository.Delete(id);
         }
 
         public List<WorkingSchedule> GetAll()
         {
-            return _workingScheduleRepository.ReadAll();
+            return _workingScheduleRepository.GetAll();
         }
 
         public WorkingSchedule GetScheduleById(int id)
@@ -67,12 +69,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)
         {
-            return _workingScheduleRepository.ReadScheduleByEmployeeId(employeeId);
+            return _workingScheduleRepository.GetWorkingScheduleByEmployeeId(employeeId);
         }
 
         public List<WorkingSchedule> GetScheduleByDate(DateTime date)
         {
-            return _workingScheduleRepository.ReadScheduleByDate(date);
+            return _workingScheduleRepository.GetScheduleByDate(date);
         }
 
         public List<WorkingSchedule> GetScheduleByMonth(DateTime yearAndMonth)

@@ -9,9 +9,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
         WorkingSchedule Create(WorkingSchedule workingSchedule);
         WorkingSchedule GetWorkingScheduleByEmployeeIdAndDayOfWeek(WorkingSchedule workingSchedule);
         WorkingSchedule Modify(WorkingSchedule workingSchedule);
-        WorkingSchedule Delete(int id);
+        WorkingSchedule Delete(int? id);
         List<WorkingSchedule> GetAll();
         List<WorkingSchedule> GetWorkingScheduleByEmployeeId(int employeeId);
         List<WorkingSchedule> GetScheduleByDate(DateTime date);
+        WorkingSchedule ReadScheduleById(int id);
     }
 }
