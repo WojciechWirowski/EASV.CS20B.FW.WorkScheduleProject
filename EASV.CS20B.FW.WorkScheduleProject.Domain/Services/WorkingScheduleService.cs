@@ -57,7 +57,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public List<WorkingSchedule> GetAll()
         {
-            return _workingScheduleRepository.ReadALl();
+            return _workingScheduleRepository.ReadAll();
         }
 
         public WorkingSchedule GetScheduleById(int id)

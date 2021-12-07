@@ -9,7 +9,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
         WorkingSchedule Create(WorkingSchedule workingSchedule);
         WorkingSchedule Update(WorkingSchedule workingSchedule);
         WorkingSchedule Delete(WorkingSchedule workingSchedule);
-        List<WorkingSchedule> ReadALl();
+        List<WorkingSchedule> ReadAll();
         WorkingSchedule ReadScheduleById(int id);
         List<WorkingSchedule> ReadScheduleByEmployeeId(int id);
         List<WorkingSchedule> ReadScheduleByDate(DateTime date);

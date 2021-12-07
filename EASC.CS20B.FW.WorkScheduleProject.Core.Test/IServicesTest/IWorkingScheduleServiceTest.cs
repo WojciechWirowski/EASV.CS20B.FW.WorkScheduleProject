@@ -26,8 +26,8 @@ namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
             {
                 EmployeeId = 1,
                 WeekDay = DayOfWeek.Monday,
-                StartTime = new DateTime().AddHours(15),
-                EndTime = new TimeSpan(21, 0, 0)
+                StartTime = new DateTime(2021,12,1,15,0,0),
+                EndTime = new DateTime(2021,12,1,21,0,0)
             };
 
         }
