@@ -1,4 +1,5 @@
 using System;
+using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Xunit;
 
 namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
@@ -28,47 +29,36 @@ namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
         [Fact]
         public void WorkingSchedule_ShouldHaveDay()
         {
-            var dateTime = new DateTime();
             var workingSchedule = new WorkingSchedule()
             {
-                WeekDay = 1
+                WeekDay = DayOfWeek.Monday
             };
-            Assert.Equal(1, workingSchedule.WeekDay);
+            Assert.Equal(DayOfWeek.Monday, workingSchedule.WeekDay);
         }
         
         [Fact]
         public void WorkingSchedule_ShouldHaveStartTime()
         {
-            var hour = 15;
+            var dateTime = new DateTime(2021,12,1,15,0,0);
             var workingSchedule = new WorkingSchedule
             {
-                StartTime = 15
+                StartTime = dateTime
             };
-            Assert.Equal(15, workingSchedule.StartTime);
+            Assert.Equal(dateTime, workingSchedule.StartTime);
         }
         
         [Fact]
         public void WorkingSchedule_ShouldHaveEndTime()
         {
-            var hour = 15;
+            var dateTime = new DateTime(2021,12,1,21,0,0);
             var workingSchedule = new WorkingSchedule
             {
-                EndTime = 15
+                EndTime = dateTime
             };
-            Assert.Equal(15, workingSchedule.EndTime);
+            Assert.Equal(dateTime, workingSchedule.EndTime);
         }
     
 
         #endregion
-    }
-
-    public class WorkingSchedule
-    {
-        public int Id { get; set; }
-        public int EmployeeId { get; set; }
-        public int WeekDay { get; set; }
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
-        
     }
 }

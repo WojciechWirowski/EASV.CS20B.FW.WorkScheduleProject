@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest;
 using EASV.CS20B.FW.WorkScheduleProject.Core.ExceptionMessage;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
@@ -28,8 +29,17 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             
             if (_userRepository.GetUserById(workingSchedule.EmployeeId) == null)
                 throw new InvalidDataException("The employee are not exist. ");
+
+            var scheduleByEmployeeId 
+                = _workingScheduleRepository
+                    .ReadScheduleByEmployeeId(workingSchedule.EmployeeId);
             
-            if (workingSchedule.StartTime != null)
+            var schedulesOfThisEmployeeAtThisDay
+                = scheduleByEmployeeId
+                    .FindAll(date => workingSchedule.StartTime.Date == date.StartTime.Date)
+                    .ToList();
+            
+            if (schedulesOfThisEmployeeAtThisDay != null)
                 throw new InvalidDataException("This employee have set a schedule on this time.");
             
             return _workingScheduleRepository.Create(workingSchedule);
@@ -37,32 +47,48 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
         {
-            return _workingScheduleRepository.Modify(workingSchedule);
+            return _workingScheduleRepository.Update(workingSchedule);
         }
 
-        public WorkingSchedule Delete(int id)
+        public WorkingSchedule Remove(WorkingSchedule workingSchedule)
         {
-            return _workingScheduleRepository.Delete(id);
+            return _workingScheduleRepository.Delete(workingSchedule);
         }
 
         public List<WorkingSchedule> GetAll()
         {
-            return _workingScheduleRepository.GetAll();
+            return _workingScheduleRepository.ReadAll();
+        }
+
+        public WorkingSchedule GetScheduleById(int id)
+        {
+            return _workingScheduleRepository.ReadScheduleById(id);
         }
 
         public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)
         {
-            return _workingScheduleRepository.GetWorkingScheduleByEmployeeId(employeeId);
+            return _workingScheduleRepository.ReadScheduleByEmployeeId(employeeId);
         }
 
         public List<WorkingSchedule> GetScheduleByDate(DateTime date)
         {
-            return _workingScheduleRepository.GetScheduleByDate(date);
+            return _workingScheduleRepository.ReadScheduleByDate(date);
         }
 
-        public List<WorkingSchedule> GetScheduleByMonth(DateTime addMonths)
+        public List<WorkingSchedule> GetScheduleByMonth(DateTime yearAndMonth)
         {
-            throw new NotImplementedException();
+            var workingSchedules = new List<WorkingSchedule>();
+            
+            var daysInMonth = DateTime.DaysInMonth(yearAndMonth.Year, yearAndMonth.Month);
+            
+            for (int i = 0; i < daysInMonth; i++)
+            {
+                var dateTime = yearAndMonth.AddDays(i + 1);
+                var scheduleByDate = GetScheduleByDate(dateTime);
+                workingSchedules.AddRange(scheduleByDate);
+            }
+
+            return workingSchedules;
         }
     }
 }
