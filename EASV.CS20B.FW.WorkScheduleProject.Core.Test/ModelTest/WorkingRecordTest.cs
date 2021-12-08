@@ -2,7 +2,7 @@ using System;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Xunit;
 
-namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
+namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
 {
     /// <summary>
     /// This class is testing about the WorkingRecord of employee check in and check out.

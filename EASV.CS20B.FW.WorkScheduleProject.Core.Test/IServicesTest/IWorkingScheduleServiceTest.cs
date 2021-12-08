@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest;
+using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Moq;
 using Xunit;
 
-namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
+namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
 {
     public class IWorkingScheduleServiceTest
     {
@@ -100,10 +100,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
         public void IWorkingScheduleService_Delete_ParaWorkingSchedule_ReturnWorkingSchedule()
         {
             _workingScheduleService
-                .Setup(service => service.Delete(1))
+                .Setup(service => service.Delete(_workingSchedule))
                 .Returns(_workingSchedule);
 
-            var schedule = _workingScheduleService.Object.Delete(1);
+            var schedule = _workingScheduleService.Object.Delete(_workingSchedule);
 
             Assert.Equal(_workingSchedule, schedule);
         }

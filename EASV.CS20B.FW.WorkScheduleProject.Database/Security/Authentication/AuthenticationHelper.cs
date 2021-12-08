@@ -29,6 +29,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
 
         public bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
+            if (storedSalt == null) throw new ArgumentNullException("There is problem");
             using (var hmac = new System.Security.Cryptography.HMACSHA512(storedSalt))
             {
                 var computedHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));

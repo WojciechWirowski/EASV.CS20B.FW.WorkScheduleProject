@@ -10,5 +10,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
         User GetUserById(int id);
         User RemoveUser(int id);
         User UpdateUser(User user);
+        User GetUserByName(string name);
     }
 }

@@ -4,7 +4,7 @@ using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Moq;
 using Xunit;
 
-namespace EASC.CS20B.FW.WorkScheduleProject.IServicesTest
+namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
 {
     public class IUserServiceTest
     {

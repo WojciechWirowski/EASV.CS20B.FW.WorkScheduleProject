@@ -80,6 +80,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             // setting up the Dependency Injection
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IWorkingScheduleRepository, WorkingScheduleRepository>();
+            services.AddScoped<IWorkingScheduleService, WorkingScheduleService>();
+            services.AddScoped<IWorkingRecordRepository, RecordsRepository>();
+            services.AddScoped<IWorkingRecordService, WorkingRecordService>();
             
             services.AddScoped<UserAuthConfig>();
             
@@ -125,6 +129,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 // when we out of develop mode then create a new DB
                 new DbSeeder(context).SeedProduction();
             }
+            
             app.UseHttpsRedirection();
 
             app.UseRouting();

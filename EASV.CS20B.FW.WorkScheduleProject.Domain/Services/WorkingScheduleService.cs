@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using EASC.CS20B.FW.WorkScheduleProject.Core.Test.IServicesTest;
 using EASV.CS20B.FW.WorkScheduleProject.Core.ExceptionMessage;
+using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
 
@@ -49,12 +49,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
         {
             return _workingScheduleRepository.Modify(workingSchedule);
         }
-
-      
-
-        public WorkingSchedule Delete(int? id)
+        
+        public WorkingSchedule Delete(WorkingSchedule workingSchedule)
         {
-            return _workingScheduleRepository.Delete(id);
+            return _workingScheduleRepository.Delete(workingSchedule);
         }
 
         public List<WorkingSchedule> GetAll()
@@ -62,9 +60,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             return _workingScheduleRepository.GetAll();
         }
 
-        public WorkingSchedule GetScheduleById(int id)
+        public WorkingSchedule GetScheduleById(WorkingSchedule workingSchedule)
         {
-            return _workingScheduleRepository.ReadScheduleById(id);
+            return _workingScheduleRepository.GetScheduleById(workingSchedule);
         }
 
         public List<WorkingSchedule> GetScheduleByEmployeeId(int employeeId)

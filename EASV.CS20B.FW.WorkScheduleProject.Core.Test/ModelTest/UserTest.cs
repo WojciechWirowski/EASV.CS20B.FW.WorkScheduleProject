@@ -2,7 +2,7 @@ using System;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using Xunit;
 
-namespace EASC.CS20B.FW.WorkScheduleProject.ModelTest
+namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
 {
     public class UserTest
     {

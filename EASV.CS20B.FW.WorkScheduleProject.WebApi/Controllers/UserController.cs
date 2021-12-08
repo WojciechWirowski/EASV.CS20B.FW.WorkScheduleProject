@@ -50,27 +50,27 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             return _service.GetUserById(id);
         }
         
-        [HttpPost]
-        public ActionResult<User> CreateUser([FromBody] UserDto dto)
-        {
-            try
-            {
-                var user = new User
-                {
-                    Id = dto.Id,
-                    Name = dto.Name
-                };
-                return Ok($"User{_service.CreateUser(user)} created...");
-            }
-            catch (ArgumentException argumentException)
-            {
-                return BadRequest(argumentException.Message);
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500, e.Message);
-            }
-        }
+        // [HttpPost]
+        // public ActionResult<User> CreateUser([FromBody] CreateUserDto dto)
+        // {
+        //     try
+        //     {
+        //         var user = new User
+        //         {
+        //             Id = dto.Id,
+        //             Name = dto.Name
+        //         };
+        //         return Ok($"User{_service.CreateUser(user)} created...");
+        //     }
+        //     catch (ArgumentException argumentException)
+        //     {
+        //         return BadRequest(argumentException.Message);
+        //     }
+        //     catch (Exception e)
+        //     {
+        //         return StatusCode(500, e.Message);
+        //     }
+        // }
         
         [HttpDelete("{id}")]
         public void DeleteUser(int id)

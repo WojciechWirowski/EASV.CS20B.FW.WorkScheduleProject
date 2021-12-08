@@ -25,11 +25,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         {
             string username = model.Username;
             string password = model.Password;
+            string role = model.Role;
 
-            if (_userAuthenticator.CreateUser(username, password))
+            if (_userAuthenticator.CreateUser(username, password, role))
             {
                 //Authentication succesful
-                return Ok();
+                return Ok($"User{username} created succesfully");
             }
             else
             {

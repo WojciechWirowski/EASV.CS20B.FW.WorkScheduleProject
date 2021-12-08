@@ -30,7 +30,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return selectQuery;
         }
 
-
         public List<WorkingSchedule> GetAll()
         {
             var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
@@ -85,9 +84,18 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             }
         }
 
-        public WorkingSchedule ReadScheduleById(int id)
+        public WorkingSchedule GetScheduleById(WorkingSchedule workingSchedule)
         {
-            throw new NotImplementedException();
+            var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
+            {
+                Id = scheduleEntity.Id,
+                EmployeeId = scheduleEntity.EmployeeId,
+                WeekDay = scheduleEntity.WeekDay,
+                StartTime = scheduleEntity.StartTime,
+                EndTime = scheduleEntity.EndTime
+            }).FirstOrDefault(schedule =>
+                schedule.Id == workingSchedule.Id);
+            return selectQuery;
         }
 
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
@@ -105,9 +113,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             return workingSchedule;
         }
 
-        public WorkingSchedule Delete(int? id)
+        public WorkingSchedule Delete(WorkingSchedule workingSchedule)
         {
-            var entity = _ctx.WorkingSchedules.Remove(new WorkingScheduleEntity {Id = id}).Entity;
+            var entity = _ctx.WorkingSchedules.Remove(new WorkingScheduleEntity {Id = workingSchedule.Id}).Entity;
             _ctx.SaveChanges();
             return new WorkingSchedule
             {

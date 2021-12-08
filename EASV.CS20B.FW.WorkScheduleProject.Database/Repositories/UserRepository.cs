@@ -31,7 +31,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             {
                 Id = user.Id,
                 Name = user.Name,
-                Role = user.Role
+                Role = user.Role,
+                Password = user.Password,
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt
             };
             _ctx.Users.Add(userEntity);
             _ctx.SaveChanges();
@@ -44,8 +47,24 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             {
                 Id = userEntity.Id,
                 Name = userEntity.Name,
-                Role = userEntity.Role
+                Role = userEntity.Role,
+                Password = userEntity.Password,
+                PasswordHash = userEntity.PasswordHash,
+                PasswordSalt = userEntity.PasswordSalt
             }).FirstOrDefault(u => u.Id == id);
+        }
+        
+        public User GetUserByName(string name)
+        {
+            return _ctx.Users.Select(userEntity => new User
+            {
+                Id = userEntity.Id,
+                Name = userEntity.Name,
+                Role = userEntity.Role,
+                Password = userEntity.Password,
+                PasswordHash = userEntity.PasswordHash,
+                PasswordSalt = userEntity.PasswordSalt
+            }).FirstOrDefault(u => u.Name == name);
         }
 
         public User RemoveUser(int id)
@@ -65,7 +84,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             {
                 Id = user.Id,
                 Name = user.Name,
-                Role = user.Role
+                Role = user.Role,
+                Password = user.Password,
+                PasswordHash = user.PasswordHash,
+                PasswordSalt = user.PasswordSalt
             };
             _ctx.Users.Update(entity);
             _ctx.SaveChanges();
