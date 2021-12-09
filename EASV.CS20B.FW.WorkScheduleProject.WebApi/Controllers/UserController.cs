@@ -79,9 +79,16 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         }
 
         [HttpPut]
-        public void UpdateUser(User user)
-        { 
+        public void UpdateUser(CreateUserDto userDto)
+        {
+            var user = new User
+            {
+                Id = userDto.Id,
+                Name = userDto.Name,
+                Password = userDto.Password,
+                Role = userDto.Role
+            };
             _service.UpdateUser(user);
         }
+        }
     }
-}

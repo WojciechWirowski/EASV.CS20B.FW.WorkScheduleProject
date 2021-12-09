@@ -15,4 +15,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Models
       
         public DateTime EndTime { get; set; }
     }
+
+    public enum WeekDays
+    {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
 }

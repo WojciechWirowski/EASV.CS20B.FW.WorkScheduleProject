@@ -80,14 +80,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
 
         public User UpdateUser(User user)
         {
+            var oldUser = GetUserById(user.Id);
             var entity = new UserEntity
             {
                 Id = user.Id,
                 Name = user.Name,
                 Role = user.Role,
                 Password = user.Password,
-                PasswordHash = user.PasswordHash,
-                PasswordSalt = user.PasswordSalt
+                PasswordHash = oldUser.PasswordHash,
+                PasswordSalt = oldUser.PasswordSalt
             };
             _ctx.Users.Update(entity);
             _ctx.SaveChanges();

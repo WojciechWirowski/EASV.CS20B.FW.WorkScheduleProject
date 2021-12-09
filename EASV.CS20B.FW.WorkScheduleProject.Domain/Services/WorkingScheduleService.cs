@@ -34,13 +34,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
                 = _workingScheduleRepository
                     .GetWorkingScheduleByEmployeeId(workingSchedule.EmployeeId);
             
-            var schedulesOfThisEmployeeAtThisDay
-                = scheduleByEmployeeId
-                    .FindAll(date => workingSchedule.StartTime.Date == date.StartTime.Date)
-                    .ToList();
-            
-            if (schedulesOfThisEmployeeAtThisDay != null)
-                throw new InvalidDataException("This employee have set a schedule on this time.");
+            // var schedulesOfThisEmployeeAtThisDay
+            //     = scheduleByEmployeeId
+            //         .FindAll(date => workingSchedule.StartTime.Date == date.StartTime.Date)
+            //         .ToList();
+            //
+            // if (schedulesOfThisEmployeeAtThisDay != null)
+            //     throw new InvalidDataException("This employee have set a schedule on this time.");
             
             return _workingScheduleRepository.Create(workingSchedule);
         }

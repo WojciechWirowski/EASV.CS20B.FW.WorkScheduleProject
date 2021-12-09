@@ -47,19 +47,18 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         }
         
         [HttpGet("{id}")]
-        public List<WorkingSchedule> GetById(int id)
+        public List<WorkingSchedule> GetByEmployeeId(int id)
         {
             return _service.GetScheduleByEmployeeId(id);
         }
         
         [HttpPost]
-        public ActionResult<WorkingScheduleDto> CreateUser([FromBody] WorkingScheduleDto dto)
+        public ActionResult<WorkingScheduleDto> CreateWorkingSchedule([FromBody] WorkingScheduleDto dto)
         {
             try
             {
                 var schedule = new WorkingSchedule
                 {
-                    Id = dto.Id,
                     EmployeeId = dto.EmployeeId,
                     EndTime = dto.EndTime,
                     StartTime = dto.StartTime,

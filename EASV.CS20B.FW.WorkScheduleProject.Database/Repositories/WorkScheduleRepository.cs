@@ -66,7 +66,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 WeekDay = workingScheduleEntity.WeekDay,
                 StartTime = workingScheduleEntity.StartTime,
                 EndTime = workingScheduleEntity.EndTime
-            }).Where(s => s.Id == employeeId).ToList();
+            }).Where(s => s.EmployeeId == employeeId).ToList();
         }
 
         public List<WorkingSchedule> GetScheduleByDate(DateTime date)
