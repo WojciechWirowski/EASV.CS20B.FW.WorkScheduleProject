@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WorkingSchedule = EASV.CS20B.FW.WorkScheduleProject.Core.Models.WorkingSchedule;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
     [Route("[controller]")]
+    [Authorize]
     [ApiController]
     public class WorkingScheduleController : ControllerBase
     {

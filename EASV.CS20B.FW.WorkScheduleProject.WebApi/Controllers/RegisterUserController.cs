@@ -1,11 +1,13 @@
 ﻿using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication;
 using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class RegisterUserController : ControllerBase
     {

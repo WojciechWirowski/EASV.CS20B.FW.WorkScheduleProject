@@ -42,7 +42,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.IServices
         WorkingRecord Delete(WorkingRecord workingRecord);
         List<WorkingRecord> GetAll();
         WorkingRecord GetById(WorkingRecord workingRecord);
-        List<WorkingRecord> GetByEmployeeId(WorkingRecord workingRecord);
+        List<WorkingRecord> GetByEmployeeId(int workingRecord);
         List<WorkingRecord> GetByDate(WorkingRecord workingRecord);
     }
 }

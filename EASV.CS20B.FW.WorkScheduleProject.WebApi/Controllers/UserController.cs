@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
     [Route("[controller]")]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -44,6 +46,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             
         }
         
+        [Authorize]
         [HttpGet("{id}")]
         public User GetById(int id)
         {
@@ -72,12 +75,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         //     }
         // }
         
+        [Authorize]
         [HttpDelete("{id}")]
         public void DeleteUser(int id)
         { 
             _service.RemoveUser(id);
         }
 
+        [Authorize]
         [HttpPut]
         public void UpdateUser(CreateUserDto userDto)
         {

@@ -151,9 +151,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
             };
             var expect = new List<WorkingRecord>();
             _iWorkingRecordMock
-                .Setup(service => service.GetByEmployeeId(workingRecord))
+                .Setup(service => service.GetByEmployeeId(workingRecord.EmployeeId))
                 .Returns(expect);
-            var actual = _iWorkingRecordMock.Object.GetByEmployeeId(workingRecord);
+            var actual = _iWorkingRecordMock.Object.GetByEmployeeId(workingRecord.EmployeeId);
             Assert.Equal(actual,expect);
 
         }

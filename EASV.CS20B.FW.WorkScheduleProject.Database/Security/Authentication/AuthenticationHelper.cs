@@ -51,9 +51,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
             };
 
             //I add all of the User's roles as Claims to the token:
-
-
-            claims.Add(new Claim(ClaimTypes.Role, user.Role));
+            
+             claims.Add(new Claim(ClaimTypes.Role, user.Role));
 
 
             var token = new JwtSecurityToken(
