@@ -20,7 +20,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             _service = service;
         }
 
-        [HttpGet]
+        [HttpGet("~/get all records")]
         public ActionResult<WorkingRecordDto> GetAllRecords()
         {
             try
@@ -52,6 +52,62 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         public WorkingRecord GetById(int id)
         {
             return _service.GetById(new WorkingRecord{Id = id});
+        }
+
+        [HttpGet("~/get records by date")]
+        public ActionResult<WorkingRecordDto> GetByDate(DateTime dateTime)
+        {
+            try
+            {
+                var records = _service.GetByDate(dateTime);
+                var workingRecordDtoList = new List<WorkingRecord>();
+                foreach (var record in records)
+                {
+                    workingRecordDtoList.Add(new WorkingRecord
+                    {
+                        Id = record.Id,
+                        EmployeeId = record.EmployeeId,
+                        CheckInTime = record.CheckInTime,
+                        CheckOutTime = record.CheckOutTime,
+                        WorkingHours = record.WorkingHours
+                    });
+                }
+
+                return Ok(workingRecordDtoList.ToArray());
+
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "System problems occured");
+            }
+        }
+        
+        [HttpGet("~/get records by employeeId")]
+        public ActionResult<WorkingRecordDto> GetByDate(int id)
+        {
+            try
+            {
+                var records = _service.GetByEmployeeId(id);
+                var workingRecordDtoList = new List<WorkingRecord>();
+                foreach (var record in records)
+                {
+                    workingRecordDtoList.Add(new WorkingRecord
+                    {
+                        Id = record.Id,
+                        EmployeeId = record.EmployeeId,
+                        CheckInTime = record.CheckInTime,
+                        CheckOutTime = record.CheckOutTime,
+                        WorkingHours = record.WorkingHours
+                    });
+                }
+
+                return Ok(workingRecordDtoList.ToArray());
+
+            }
+            catch (Exception)
+            {
+                return StatusCode(500, "System problems occured");
+            }
         }
 
         [HttpPost]

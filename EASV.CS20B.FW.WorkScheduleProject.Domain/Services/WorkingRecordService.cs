@@ -76,9 +76,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             return _workingRecordRepository.GetByEmployeeId(id); 
         }
 
-        public List<WorkingRecord> GetByDate(WorkingRecord workingRecord)
+        public List<WorkingRecord> GetByDate(DateTime date)
         {
-            return _workingRecordRepository.GetByDate(workingRecord.CheckInTime);
+            return _workingRecordRepository.GetByDate(date);
         }
     }
 }

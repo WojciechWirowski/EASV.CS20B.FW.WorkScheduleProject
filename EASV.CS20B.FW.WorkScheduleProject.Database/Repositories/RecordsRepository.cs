@@ -102,7 +102,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 CheckOutTime = recordEntity.CheckOutTime,
                 EmployeeId = recordEntity.EmployeeId,
                 WorkingHours = recordEntity.WorkingHours
-            }).Where(r => r.CheckInTime.ToString("yy-MM-dd") == dateTime.ToString("yy-MM-dd")).ToList();
+            }).Where(r => r.CheckInTime.Date == dateTime.Date).ToList();
         }
     }
 }

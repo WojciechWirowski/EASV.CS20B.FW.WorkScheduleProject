@@ -173,9 +173,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.IServicesTest
             };
             var workingRecords = new List<WorkingRecord>();
             _iWorkingRecordMock
-                .Setup(service => service.GetByDate(workingRecord))
+                .Setup(service => service.GetByDate(workingRecord.CheckInTime))
                 .Returns(workingRecords);
-            var byDate = _iWorkingRecordMock.Object.GetByDate(workingRecord);
+            var byDate = _iWorkingRecordMock.Object.GetByDate(workingRecord.CheckInTime);
             Assert.Equal(byDate,workingRecords);
 
         }

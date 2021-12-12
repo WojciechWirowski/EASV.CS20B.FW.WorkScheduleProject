@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 
@@ -43,6 +44,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Core.IServices
         List<WorkingRecord> GetAll();
         WorkingRecord GetById(WorkingRecord workingRecord);
         List<WorkingRecord> GetByEmployeeId(int workingRecord);
-        List<WorkingRecord> GetByDate(WorkingRecord workingRecord);
+        List<WorkingRecord> GetByDate(DateTime workingRecord);
     }
 }
