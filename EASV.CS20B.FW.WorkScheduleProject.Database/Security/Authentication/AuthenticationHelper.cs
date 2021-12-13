@@ -47,14 +47,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, user.Name),
-                new Claim(ClaimTypes.Sid, user.Id.ToString())
+                new Claim(ClaimTypes.Sid, user.Id.ToString()),
+                new Claim(ClaimTypes.Role, user.Role)
             };
-
-            //I add all of the User's roles as Claims to the token:
             
-             claims.Add(new Claim(ClaimTypes.Role, user.Role));
-
-
             var token = new JwtSecurityToken(
                 new JwtHeader(new SigningCredentials(
                     new SymmetricSecurityKey(_secretBytes),

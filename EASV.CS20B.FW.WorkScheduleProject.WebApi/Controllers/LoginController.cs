@@ -1,4 +1,6 @@
-﻿using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication;
+﻿using System;
+using System.Security.Authentication;
+using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication;
 using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,15 +23,22 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         [HttpPost(nameof(Post))]
         public IActionResult Post([FromBody] LoginInput model)
         {
-            string userToken; // where i can get the userToken?
-            if (_userAuthenticator.Login(model.Username, model.Password, out userToken))
+            try
             {
-                //Authentication successful
-                return Ok(new
+                string userToken; // where i can get the userToken?
+                if (_userAuthenticator.Login(model.Username, model.Password, out userToken))
                 {
-                    username = model.Username,
-                    token = userToken
-                });
+                    //Authentication successful
+                    return Ok(new
+                    {
+                        username = model.Username,
+                        token = userToken
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, "Contact administrator");
             }
 
             return Unauthorized("Unknown username and password combination");
