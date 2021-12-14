@@ -66,7 +66,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             Assert.True(user.Password is string);
 
         }
-
+        //tests if the user should have role as enum
         [Fact]
         public void User_ShouldHaveRole_AsEnum()
         {

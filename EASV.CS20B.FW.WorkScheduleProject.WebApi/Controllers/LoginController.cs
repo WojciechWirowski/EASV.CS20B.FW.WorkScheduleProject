@@ -13,12 +13,12 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IUserAuthenticator _userAuthenticator;
-
+        //creates user Authenticator
         public LoginController(IUserAuthenticator userAuthenticator)
         {
             _userAuthenticator = userAuthenticator;
         }
-
+        //HttpPost request to login
         [AllowAnonymous]
         [HttpPost(nameof(Post))]
         public IActionResult Post([FromBody] LoginInput model)

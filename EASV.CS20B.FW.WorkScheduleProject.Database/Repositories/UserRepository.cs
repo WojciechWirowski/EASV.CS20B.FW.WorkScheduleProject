@@ -9,12 +9,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
     public class UserRepository : IUserRepository
     {
         private readonly ScheduleApplicationContext _ctx;
-
+        //constructor creates the database
         public UserRepository(ScheduleApplicationContext ctx)
         {
             _ctx = ctx;
         }
-
+        //gets all users
         public List<User> GetUsers()
         {
             var selectQuery = _ctx.Users.Select(userEntity => new User
@@ -24,7 +24,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             });
             return selectQuery.ToList();
         }
-
+        //creates users
         public User CreateUser(User user)
         {
             UserEntity userEntity = new UserEntity
@@ -40,7 +40,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return user;
         }
-
+        //gets user by id
         public User GetUserById(int id)
         {
             return _ctx.Users.Select(userEntity => new User
@@ -53,7 +53,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 PasswordSalt = userEntity.PasswordSalt
             }).FirstOrDefault(u => u.Id == id);
         }
-        
+        //gets user by name
         public User GetUserByName(string name)
         {
             return _ctx.Users.Select(userEntity => new User
@@ -66,7 +66,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 PasswordSalt = userEntity.PasswordSalt
             }).FirstOrDefault(u => u.Name == name);
         }
-
+        //deletes user by id
         public User RemoveUser(int id)
         {
             var entity = _ctx.Users.Remove(new UserEntity {Id = id}).Entity;
@@ -77,7 +77,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Name = entity.Name
             };
         }
-
+        //updates user
         public User UpdateUser(User user)
         {
             var oldUser = GetUserById(user.Id);

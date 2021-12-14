@@ -17,7 +17,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
         {
             _secretBytes = secret;
         }
-
+        //creates password hash with salt
         public void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
             using (var hmac = new System.Security.Cryptography.HMACSHA512())
@@ -26,7 +26,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
                 passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
-
+        //verifies password hash if the stored hash is equal to the computed hash and returns true if same and it checks if there is a stored salt
         public bool VerifyPasswordHash(string password, byte[] storedHash, byte[] storedSalt)
         {
             if (storedSalt == null) throw new ArgumentNullException("There is problem");
@@ -41,7 +41,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
 
             return true;
         }
-
+        //Generates a token for the user with claims. The claim holds information about the user.
         public string GenerateToken(User user)
         {
             var claims = new List<Claim>

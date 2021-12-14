@@ -12,14 +12,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
     public class WorkingRecordTest
     {
         #region Initial
-
+        //tests if there is a working record
         [Fact]
         public void WorkingRecord_CanBeInitial()
         {
             var workingRecord = new WorkingRecord();
             Assert.NotNull(workingRecord);
         }
-
+        //tests if the working record have an id
         [Fact]
         public void WorkingRecord_HaveId()
         {
@@ -29,7 +29,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };
             Assert.Equal(1,workingRecord.Id);
         }
-
+        //tests if the working record have employee id
         [Fact]
         public void WorkingRecord_HaveEmployeeId()
         {
@@ -39,7 +39,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };
             Assert.Equal(1,workingRecord.EmployeeId);
         }
-
+        //tests if the working record have check in time
         [Fact]
         public void WorkingRecord_HaveCheckInTime()
         {
@@ -50,7 +50,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };
             Assert.Equal(dateTime,workingRecord.CheckInTime);
         }
-
+        //tests if the working record have check out time
         [Fact]
         public void WorkingRecord_HaveCheckOutTime()
         {
@@ -61,7 +61,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };  
             Assert.Equal(dateTime,workingRecord.CheckOutTime);
         }
-
+        //tests if the working record have working hours
         [Fact]
         public void WorkingRecord_HaveWorkingHours()
         {

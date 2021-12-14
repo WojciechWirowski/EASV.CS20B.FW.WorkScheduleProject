@@ -10,12 +10,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
     public class WorkingScheduleRepository : IWorkingScheduleRepository
     {
         private readonly ScheduleApplicationContext _ctx;
-
+        //constructor creates the database
         public WorkingScheduleRepository(ScheduleApplicationContext ctx)
         {
             _ctx = ctx;
         }
-        
+        //gets working schedule by employee id and day of week
         public WorkingSchedule GetWorkingScheduleByEmployeeIdAndDayOfWeek(WorkingSchedule workingSchedule)
         {
             var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
@@ -29,7 +29,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 schedule.EmployeeId == workingSchedule.EmployeeId && schedule.WeekDay == workingSchedule.WeekDay);
             return selectQuery;
         }
-
+        //Gets all working schedules
         public List<WorkingSchedule> GetAll()
         {
             var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
@@ -42,7 +42,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             });
             return selectQuery.ToList();
         }
-
+        //creates working schedule
         public WorkingSchedule Create(WorkingSchedule workingSchedule)
         {
             WorkingScheduleEntity workingScheduleEntity = new WorkingScheduleEntity
@@ -57,7 +57,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return workingSchedule;
         }
-
+        //gets working schedule by employee id
         public List<WorkingSchedule> GetWorkingScheduleByEmployeeId(int employeeId){
             return _ctx.WorkingSchedules.Select(workingScheduleEntity => new WorkingSchedule
             {
@@ -68,7 +68,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 EndTime = workingScheduleEntity.EndTime
             }).Where(s => s.EmployeeId == employeeId).ToList();
         }
-
+        //gets working schedule by date
         public List<WorkingSchedule> GetScheduleByDate(DateTime date)
         {
             {
@@ -83,7 +83,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 }).Where(s => s.WeekDay == dayOfWeek).ToList();
             }
         }
-
+        //Gets working schedule by id
         public WorkingSchedule GetScheduleById(WorkingSchedule workingSchedule)
         {
             var selectQuery = _ctx.WorkingSchedules.Select(scheduleEntity => new WorkingSchedule
@@ -97,7 +97,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 schedule.Id == workingSchedule.Id);
             return selectQuery;
         }
-
+        //updates the working schedule
         public WorkingSchedule Modify(WorkingSchedule workingSchedule)
         {
             var entity = new WorkingScheduleEntity()
@@ -112,7 +112,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return workingSchedule;
         }
-
+        //Deletes the working schedule
         public WorkingSchedule Delete(WorkingSchedule workingSchedule)
         {
             var entity = _ctx.WorkingSchedules.Remove(new WorkingScheduleEntity {Id = workingSchedule.Id}).Entity;
