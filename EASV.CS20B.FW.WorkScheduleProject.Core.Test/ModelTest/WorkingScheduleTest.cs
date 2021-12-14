@@ -7,14 +7,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
     public class WorkingScheduleTest
     {
         #region Initialize
-
+        // tests if there is a working schedule
         [Fact]
         public void WorkingSchedule_CanBeInitialize()
         {
             var workingSchedule = new WorkingSchedule();
             Assert.NotNull(workingSchedule);
         }
-
+        //tests if working schedule should have id
         [Fact]
         public void WorkingSchedule_ShouldHaveId()
         {
@@ -25,7 +25,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             Assert.Equal(1,workingSchedule.Id);
 
         }
-
+        //tests if working schedule should have day
         [Fact]
         public void WorkingSchedule_ShouldHaveDay()
         {
@@ -35,7 +35,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };
             Assert.Equal(DayOfWeek.Monday, workingSchedule.WeekDay);
         }
-        
+        //tests if working schedule should have start time
         [Fact]
         public void WorkingSchedule_ShouldHaveStartTime()
         {
@@ -46,7 +46,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.ModelTest
             };
             Assert.Equal(dateTime, workingSchedule.StartTime);
         }
-        
+        //tests if working schedule should have end time
         [Fact]
         public void WorkingSchedule_ShouldHaveEndTime()
         {

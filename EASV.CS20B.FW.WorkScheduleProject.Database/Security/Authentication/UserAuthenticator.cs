@@ -16,13 +16,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
     {
         private readonly IUserRepository _userRepository;
         private readonly IAuthenticationHelper _authenticationHelper;
-
+        //Constructor creates userRepository and authenticationHelper
         public UserAuthenticator(IUserRepository userRepository, IAuthenticationHelper authenticationHelper)
         {
             _userRepository = userRepository;
             _authenticationHelper = authenticationHelper;
         }
-
+        //checkin user with the password and generates a token for the user and returns true, when logged in
         public bool Login(string username, string password, out string token)
         {
             User user = _userRepository.GetUserByName(username);
@@ -43,7 +43,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
 
             token = _authenticationHelper.GenerateToken(user);
             return true;        }
-
+        //checkin an user with the parameters username, password and role, when created
         public bool CreateUser(string username, string password, string role)
         {
             var user = _userRepository.GetUsers().FirstOrDefault(u => u.Name == username);

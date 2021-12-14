@@ -13,13 +13,13 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
     {
         private readonly IUserAuthenticator _userAuthenticator;
         private readonly ILogger<RegisterUserController> _logger;
-
+        //creates userAuthenticator and logger
         public RegisterUserController(IUserAuthenticator userAuthenticator, ILogger<RegisterUserController> logger)
         {
             _userAuthenticator = userAuthenticator;
             _logger = logger;
         }
-
+        //HttpPost request to create a user
         // POST: api/Login
         [Route(nameof(Post))]
         [HttpPost]

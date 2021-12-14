@@ -14,12 +14,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
     public class WorkingRecordController : ControllerBase
     {
         private readonly IWorkingRecordService _service;
-
+        //creating a working record service
         public WorkingRecordController(IWorkingRecordService service)
         {
             _service = service;
         }
-
+        //HttpGet request to get all records
         [HttpGet("~/get all records")]
         public ActionResult<WorkingRecordDto> GetAllRecords()
         {
@@ -47,13 +47,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, "System problems occured");
             }
         }
-
+        //HttpGet request to get working record by id
         [HttpGet("{id}")]
         public WorkingRecord GetById(int id)
         {
             return _service.GetById(new WorkingRecord{Id = id});
         }
-
+        //HttpGet request to get records by date
         [HttpGet("~/get records by date")]
         public ActionResult<WorkingRecordDto> GetByDate(DateTime dateTime)
         {
@@ -81,7 +81,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, "System problems occured");
             }
         }
-        
+        //HttpGet request to get records by employee id
         [HttpGet("~/get records by employeeId")]
         public ActionResult<WorkingRecordDto> GetByDate(int id)
         {
@@ -109,7 +109,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, "System problems occured");
             }
         }
-
+        //HttpPost request to create a record
         [HttpPost]
         public ActionResult<WorkingRecord> CheckIn([FromBody] WorkingRecordDto dto)
         {
@@ -132,13 +132,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-
+        //HttpDelete request to delete working record by id
         [HttpDelete("{id}")]
         public WorkingRecord Delete(int id)
         {
             return _service.Delete(new WorkingRecord {Id = id});
         }
-
+        //HttpPut request to update working record
         [HttpPut]
         public WorkingRecord Modify(WorkingRecord workingRecord)
         {

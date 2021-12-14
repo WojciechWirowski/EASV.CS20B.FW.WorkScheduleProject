@@ -10,12 +10,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
     public class RecordsRepository :IWorkingRecordRepository
     {
         private readonly ScheduleApplicationContext _ctx;
-
+        //constructor creates the database
         public RecordsRepository(ScheduleApplicationContext ctx)
         {
             _ctx = ctx;
         }
-
+        //gets all records
         public List<WorkingRecord> GetAllRecords()
         {
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord()
@@ -27,7 +27,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             });
             return selectQuery.ToList();
         }
-
+        //creates working record
         public WorkingRecord Create(WorkingRecord record)
         {
             RecordEntity recordEntity = new RecordEntity
@@ -41,7 +41,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return record;
         }
-
+        //updates working record
         public WorkingRecord Modify(WorkingRecord record)
         {
             RecordEntity recordEntity = new RecordEntity
@@ -55,7 +55,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             _ctx.SaveChanges();
             return record;
         }
-        
+        //deletes working record by id
         public WorkingRecord Delete(int? id)
         {
             var entity = _ctx.Records.Remove(new RecordEntity {Id = id}).Entity;
@@ -68,7 +68,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 CheckOutTime = entity.CheckOutTime
             };
         }
-
+        //gets working record by id
         public WorkingRecord GetById(int? id)
         {
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
@@ -80,7 +80,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             }).FirstOrDefault(r => r.Id == id);
             return selectQuery;
         }
-
+        //gets working record by employee id
         public List<WorkingRecord> GetByEmployeeId(int id)
         {
             var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
@@ -92,7 +92,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             }).Where(w => w.EmployeeId == id).ToList();
             return selectQuery;
         }
-
+        //Gets working record by date
         public List<WorkingRecord> GetByDate(DateTime dateTime)
         {
             return _ctx.Records.Select(recordEntity => new WorkingRecord

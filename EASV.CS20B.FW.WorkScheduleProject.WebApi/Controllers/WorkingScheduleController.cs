@@ -14,12 +14,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
     public class WorkingScheduleController : ControllerBase
     {
         private readonly IWorkingScheduleService _service;
-
+        //Creating a working schedule service
         public WorkingScheduleController(IWorkingScheduleService service)
         {
             _service = service;
         }
-
+        //HttpGet request to get all scheduled days
         [HttpGet]
         public ActionResult<WorkingScheduleDto[]> GetAllScheduledDays()
         {
@@ -47,13 +47,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, "System problems occured");
             }
         }
-        
+        //HttpGet Request to get employee by id
         [HttpGet("{id}")]
         public List<WorkingSchedule> GetByEmployeeId(int id)
         {
             return _service.GetScheduleByEmployeeId(id);
         }
-        
+        //HttpPost request to create a working schedule
         [HttpPost]
         public ActionResult<WorkingScheduleDto> CreateWorkingSchedule([FromBody] WorkingScheduleDto dto)
         {
@@ -77,13 +77,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
-        
+        //HttpDelete request to delete the working schedule by id
         [HttpDelete("{id}")]
         public void DeleteSchedule(int id)
         {
             _service.Delete(new WorkingSchedule{Id = id});
         }
-
+        //HttpPut request to update the schedule
         [HttpPut]
         public void UpdateSchedule(WorkingSchedule schedule)
         { 

@@ -20,7 +20,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database
             Users();
             WorkingSchedule();
         }
-
+        //adding data to the database
         public void WorkingSchedule()
         {
             _context.WorkingSchedules.Add(new WorkingScheduleEntity {Id = 1, EmployeeId = 1, StartTime = new DateTime(1,1,1,15,0,0), EndTime = new DateTime(1,1,1,20,0,0), WeekDay = DayOfWeek.Monday});
@@ -33,7 +33,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database
 
         }
 
-    
+        //adding data to the database
         public void Users()
         {
             _context.Users.Add(new UserEntity {Id = 1, Name = "George", Password = "1234", Role = "admin"});
@@ -43,7 +43,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database
             _context.Users.Add(new UserEntity {Id = 5, Name = "Andrew", Password = "1234", Role = "user"});
             _context.Users.Add(new UserEntity {Id = 6, Name = "Lilly", Password = "1234", Role = "user"});
         }
-
+        //adding data to the database and saves the changes if count is equal to 0
         public void SeedProduction()
         {
             _context.Database.EnsureCreated();
