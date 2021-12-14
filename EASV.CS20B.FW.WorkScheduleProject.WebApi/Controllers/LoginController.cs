@@ -25,14 +25,16 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         {
             try
             {
-                string userToken; // where i can get the userToken?
-                if (_userAuthenticator.Login(model.Username, model.Password, out userToken))
+                string userToken;
+                string role;
+                if (_userAuthenticator.Login(model.Username, model.Password, out userToken, out role))
                 {
                     //Authentication successful
                     return Ok(new
                     {
                         username = model.Username,
-                        token = userToken
+                        token = userToken,
+                        role = role
                     });
                 }
             }

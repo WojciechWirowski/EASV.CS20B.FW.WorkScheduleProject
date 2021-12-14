@@ -7,7 +7,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
 {
     public interface IUserAuthenticator
     {
-        bool Login(string username, string password, out string token);
+        bool Login(string username, string password, out string token, out string role);
         bool CreateUser(string username, string password, string role);
     }
 
@@ -23,7 +23,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
             _authenticationHelper = authenticationHelper;
         }
 
-        public bool Login(string username, string password, out string token)
+        public bool Login(string username, string password, out string token, out string role)
         {
             User user = _userRepository.GetUserByName(username);
 
@@ -31,6 +31,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
             if (user == null)
             {
                 token = null;
+                role = null;
                 return false;
             }
 
@@ -38,10 +39,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication
             if (!_authenticationHelper.VerifyPasswordHash(password, user.PasswordHash, user.PasswordSalt))
             {
                 token = null;
+                role = null;
                 return false;
             }
 
             token = _authenticationHelper.GenerateToken(user);
+            role = user.Role;
+            
             return true;        }
 
         public bool CreateUser(string username, string password, string role)

@@ -54,8 +54,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             return _service.GetScheduleByEmployeeId(id);
         }
         
+        [Route(nameof(Post))]
         [HttpPost]
-        public ActionResult<WorkingScheduleDto> CreateWorkingSchedule([FromBody] WorkingScheduleDto dto)
+        public ActionResult<WorkingScheduleDto> Post([FromBody] WorkingScheduleDto dto)
         {
             try
             {
