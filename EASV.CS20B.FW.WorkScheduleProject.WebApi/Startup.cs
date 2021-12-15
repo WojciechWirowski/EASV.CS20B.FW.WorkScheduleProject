@@ -66,7 +66,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                     ClockSkew = TimeSpan.FromMinutes(5) //5 minute tolerance for the expiration date
                 };
             });
-            //commit
+            
             var loggerFactory = LoggerFactory.Create(builder => { builder.AddConsole(); });
             
             // adding DB info
