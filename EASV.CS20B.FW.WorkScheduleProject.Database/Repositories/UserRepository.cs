@@ -20,7 +20,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
             var selectQuery = _ctx.Users.Select(userEntity => new User
             {
                 Id = userEntity.Id,
-                Name = userEntity.Name
+                Name = userEntity.Name,
+                Role = userEntity.Role
             });
             return selectQuery.ToList();
         }
