@@ -8,9 +8,9 @@ using WorkingSchedule = EASV.CS20B.FW.WorkScheduleProject.Core.Models.WorkingSch
 
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
-    [Route("[controller]")]
-    [Authorize]
-    [ApiController]
+    ///[Route("[controller]")]
+    //[Authorize]
+    //[ApiController]
     public class WorkingScheduleController : ControllerBase
     {
         private readonly IWorkingScheduleService _service;

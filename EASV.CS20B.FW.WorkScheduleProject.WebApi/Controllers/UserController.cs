@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     // [Authorize]
     [ApiController]
     public class UserController : ControllerBase

@@ -6,9 +6,9 @@ using Microsoft.Extensions.Logging;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
 {
-    [Route("api/[controller]")]
-    [Authorize]
-    [ApiController]
+    //[Route("api/[controller]")]
+    //[Authorize]
+    //[ApiController]
     public class RegisterUserController : ControllerBase
     {
         private readonly IUserAuthenticator _userAuthenticator;
