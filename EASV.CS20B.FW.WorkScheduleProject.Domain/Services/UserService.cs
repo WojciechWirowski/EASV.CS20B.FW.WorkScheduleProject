@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using EASV.CS20B.FW.WorkScheduleProject.Core.ExceptionMessage;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Core.Models;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
@@ -13,7 +14,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
 
         public UserService(IUserRepository userRepository)
         {
-            _repo = userRepository ?? throw new InvalidDataException("The Repository can not be null");
+            _repo = userRepository ?? throw new InvalidDataException(DiCanNotNullExceptionMessage.UserRepositoryCanNotNull);
         }
 
         public List<User> GetUsers()

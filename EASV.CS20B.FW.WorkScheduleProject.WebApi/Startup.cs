@@ -150,7 +150,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             }
             else
             {
-                app.UseCors("Prod.cors");
+                app.UseCors("UserPolicy");
                 // when we out of develop mode then create a new DB
                 new DbSeeder(context).SeedProduction();
             }

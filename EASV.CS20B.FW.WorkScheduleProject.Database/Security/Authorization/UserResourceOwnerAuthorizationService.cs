@@ -20,6 +20,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authorizatio
             return Task.CompletedTask;
         }
 
+
         public long GetAuthorizedOwnerId()
         {
             throw new System.NotImplementedException();

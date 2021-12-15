@@ -14,12 +14,12 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _service;
-        //creates a user service
+
         public UserController(IUserService userService)
         {
             _service = userService;
         }
-        //HttpGet request to get all users
+        
         [HttpGet]
         public ActionResult<UserDto[]> GetAllUsers()
         {
@@ -45,7 +45,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
             
         }
-        //HttpGet request to get user by id
+        
         [Authorize]
         [HttpGet("{id}")]
         public User GetById(int id)
@@ -74,14 +74,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         //         return StatusCode(500, e.Message);
         //     }
         // }
-        //HttpDelete request to delete user by id
+        
         [Authorize]
         [HttpDelete("{id}")]
         public void DeleteUser(int id)
         { 
             _service.RemoveUser(id);
         }
-        //HttpPut request to update user
+
         [Authorize]
         [HttpPut]
         public void UpdateUser(CreateUserDto userDto)

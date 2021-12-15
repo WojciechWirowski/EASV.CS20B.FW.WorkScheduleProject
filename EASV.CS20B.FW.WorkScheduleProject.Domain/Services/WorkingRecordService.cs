@@ -19,7 +19,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             _workingRecordRepository 
                 = workingRecordRepository ?? 
                   throw new InvalidDataException(
-                      "The working record repository can not be null");
+                      DiCanNotNullExceptionMessage.WorkingRecordRepositoryCanNotNull);
         }
 
         
