@@ -16,4 +16,12 @@
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Database\EASV.CS20B.FW.WorkScheduleProject.Database.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="Web.config">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

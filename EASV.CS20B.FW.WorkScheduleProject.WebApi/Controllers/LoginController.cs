@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
 {
-    //[Route("api/[controller]")]
-    //[ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
 
     public class LoginController : ControllerBase
     {
