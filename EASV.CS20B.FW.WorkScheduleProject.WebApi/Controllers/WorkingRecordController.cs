@@ -49,9 +49,13 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         }
         //HttpGet request to get working record by id
         [HttpGet("{id}")]
-        public WorkingRecord GetById(int id)
+        public WorkingRecordDto GetById(int id)
         {
-            return _service.GetById(new WorkingRecord{Id = id});
+            var workingRecord = _service.GetById(new WorkingRecord{Id = id});
+            return new WorkingRecordDto()
+            {
+                Id = workingRecord.Id
+            };
         }
         //HttpGet request to get records by date
         [HttpGet("~/get records by date")]
@@ -60,10 +64,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             try
             {
                 var records = _service.GetByDate(dateTime);
-                var workingRecordDtoList = new List<WorkingRecord>();
+                var workingRecordDtoList = new List<WorkingRecordDto>();
                 foreach (var record in records)
                 {
-                    workingRecordDtoList.Add(new WorkingRecord
+                    workingRecordDtoList.Add(new WorkingRecordDto
                     {
                         Id = record.Id,
                         EmployeeId = record.EmployeeId,
@@ -83,15 +87,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         }
         //HttpGet request to get records by employee id
         [HttpGet("~/get records by employeeId")]
-        public ActionResult<WorkingRecordDto> GetByDate(int id)
+        public ActionResult<WorkingRecordDto> GetByEmployeeId(int id)
         {
             try
             {
                 var records = _service.GetByEmployeeId(id);
-                var workingRecordDtoList = new List<WorkingRecord>();
+                var workingRecordDtoList = new List<WorkingRecordDto>();
                 foreach (var record in records)
                 {
-                    workingRecordDtoList.Add(new WorkingRecord
+                    workingRecordDtoList.Add(new WorkingRecordDto()
                     {
                         Id = record.Id,
                         EmployeeId = record.EmployeeId,
@@ -110,18 +114,26 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
         }
         //HttpPost request to create a record
-        [HttpPost]
-        public ActionResult<WorkingRecord> CheckIn([FromBody] WorkingRecordDto dto)
+        [HttpPost(nameof(CheckIn))]
+        public ActionResult<WorkingRecordDto> CheckIn([FromBody] WorkingRecordDto dto)
         {
             try
             {
                 var record = new WorkingRecord
                 {
-                    CheckInTime = dto.CheckInTime,
-                   CheckOutTime = dto.CheckOutTime,
-                   EmployeeId = dto.EmployeeId
+                   EmployeeId = dto.EmployeeId,
+                    CheckInTime = dto.CheckInTime
                 };
-                return Ok($"Schedule day{_service.CheckIn(record)} created...");
+                var workingRecord = _service.CheckIn(record);
+                var workingRecordDto = new WorkingRecordDto()
+                {
+                    Id = workingRecord.Id,
+                    EmployeeId = workingRecord.EmployeeId,
+                    CheckInTime = workingRecord.CheckInTime,
+                    CheckOutTime = workingRecord.CheckOutTime,
+                    WorkingHours = workingRecord.WorkingHours
+                };
+                return Ok($"Check In Success: {workingRecordDto} ");
             }
             catch (ArgumentException argumentException)
             {
@@ -132,17 +144,67 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, e.Message);
             }
         }
+        
+        [HttpPost(nameof(CheckOut))]
+        public ActionResult<WorkingRecordDto> CheckOut([FromBody] WorkingRecordDto dto)
+        {
+            try
+            {
+                var record = new WorkingRecord
+                {
+                    Id = dto.Id,
+                    CheckOutTime = dto.CheckOutTime
+                };
+                var workingRecord = _service.CheckOut(record);
+                var workingRecordDto = new WorkingRecordDto()
+                {
+                    Id = workingRecord.Id,
+                    EmployeeId = workingRecord.EmployeeId,
+                    CheckInTime = workingRecord.CheckInTime,
+                    CheckOutTime = workingRecord.CheckOutTime,
+                    WorkingHours = workingRecord.WorkingHours
+                };
+                return Ok($"Check Out Success: {workingRecordDto}");
+            }
+            catch (ArgumentException argumentException)
+            {
+                return BadRequest(argumentException.Message);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e.Message);
+            }
+        }
+        
+        
         //HttpDelete request to delete working record by id
         [HttpDelete("{id}")]
-        public WorkingRecord Delete(int id)
+        public WorkingRecordDto Delete(int id)
         {
-            return _service.Delete(new WorkingRecord {Id = id});
+            var workingRecord = _service.Delete(new WorkingRecord {Id = id});
+            return new WorkingRecordDto() { Id = workingRecord.Id };
         }
         //HttpPut request to update working record
         [HttpPut]
-        public WorkingRecord Modify(WorkingRecord workingRecord)
+        public WorkingRecordDto Modify(WorkingRecordDto workingRecordDto)
         {
-           return _service.Modify(workingRecord);
+            var workingRecord = new WorkingRecord()
+            {
+                Id = workingRecordDto.Id,
+                EmployeeId = workingRecordDto.EmployeeId,
+                CheckInTime = workingRecordDto.CheckInTime,
+                CheckOutTime = workingRecordDto.CheckOutTime,
+                WorkingHours = workingRecordDto.WorkingHours
+            };
+            var modify = _service.Modify(workingRecord);
+            return new WorkingRecordDto()
+            {
+                Id = workingRecord.Id,
+                EmployeeId = modify.EmployeeId,
+                CheckInTime = modify.CheckInTime,
+                CheckOutTime = modify.CheckOutTime,
+                WorkingHours = modify.WorkingHours
+            };
         }
         
         
