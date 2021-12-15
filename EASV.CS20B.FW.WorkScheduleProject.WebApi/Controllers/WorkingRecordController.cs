@@ -26,10 +26,10 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             try
             {
                 var records = _service.GetAll();
-                var workingRecordDtoList = new List<WorkingRecord>();
+                var workingRecordDtoList = new List<WorkingRecordDto>();
                 foreach (var record in records)
                 {
-                    workingRecordDtoList.Add(new WorkingRecord
+                    workingRecordDtoList.Add(new WorkingRecordDto()
                     {
                         Id = record.Id,
                         EmployeeId = record.EmployeeId,

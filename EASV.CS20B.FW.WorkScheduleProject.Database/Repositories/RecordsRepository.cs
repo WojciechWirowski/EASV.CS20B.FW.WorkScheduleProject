@@ -23,7 +23,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = recordEntity.Id,
                 EmployeeId = recordEntity.EmployeeId,
                 CheckInTime = recordEntity.CheckInTime,
-                CheckOutTime = recordEntity.CheckOutTime
+                CheckOutTime = recordEntity.CheckOutTime,
+                WorkingHours = recordEntity.WorkingHours
             });
             return selectQuery.ToList();
         }
