@@ -45,8 +45,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             {
                 rngCsp.GetBytes(secretBytes);
             }
+            services.AddControllers();
 
-            services.AddHttpClient();
             
             //Add JWT authentication
             //The settings below match the settings when we create our TOKEN:
@@ -74,7 +74,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 opt => opt.UseLoggerFactory(loggerFactory)
                     .UseSqlite("Data source = ScheduleProject.db"));
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EASV.CS20B.FW.WorkScheduleProject.WebApi", Version = "v1" });
@@ -131,7 +130,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                         .AllowAnyOrigin();
                 });
             });
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -142,11 +140,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EASV.CS20B.FW.WorkScheduleProject.WebApi v1"));
-            
-
-            app.UseCors("UserPolicy");
-            var dbSeeder = new DbSeeder(context);
-            dbSeeder.SeedDevelopment();
+                app.UseCors("UserPolicy");
+                var dbSeeder = new DbSeeder(context);
+                dbSeeder.SeedDevelopment();
             }
             else
             {
