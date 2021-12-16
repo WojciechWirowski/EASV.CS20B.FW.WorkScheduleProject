@@ -105,5 +105,17 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 WorkingHours = recordEntity.WorkingHours
             }).Where(r => r.CheckInTime.Date == dateTime.Date).ToList();
         }
+        
+        public List<WorkingRecord> GetByEmployeeIdAndDate(int id)
+        {
+            var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
+            {
+                Id = recordEntity.Id,
+                EmployeeId = recordEntity.EmployeeId,
+                CheckInTime = recordEntity.CheckInTime,
+                CheckOutTime = recordEntity.CheckOutTime
+            }).Where(w => w.EmployeeId == id && w.CheckInTime.Date == DateTime.Today).ToList();
+            return selectQuery;
+        }
     }
 }

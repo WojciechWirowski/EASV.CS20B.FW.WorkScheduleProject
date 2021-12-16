@@ -23,7 +23,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         // POST: api/Login
         [Route(nameof(Post))]
         [HttpPost]
-        public IActionResult Post([FromBody] RegisterUser model)
+        public ActionResult<UserDto> Post([FromBody] RegisterUser model)
         {
             string username = model.Username;
             string password = model.Password;
@@ -32,7 +32,10 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
             if (_userAuthenticator.CreateUser(username, password, role))
             {
                 //Authentication succesful
-                return Ok($"User{username} created succesfully");
+                return Ok(new UserDto()
+                {
+                    Name = username
+                });
             }
             else
             {

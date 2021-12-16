@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     [Authorize]
     [ApiController]
     public class WorkingRecordController : ControllerBase
@@ -20,7 +20,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             _service = service;
         }
         //HttpGet request to get all records
-        [HttpGet("~/get all records")]
+        [HttpGet(nameof(GetAllRecords))]
         public ActionResult<WorkingRecordDto> GetAllRecords()
         {
             try
@@ -58,7 +58,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             };
         }
         //HttpGet request to get records by date
-        [HttpGet("~/get records by date")]
+        [HttpGet(nameof(GetByDate))]
         public ActionResult<WorkingRecordDto> GetByDate(DateTime dateTime)
         {
             try
