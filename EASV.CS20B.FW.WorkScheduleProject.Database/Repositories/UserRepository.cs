@@ -87,6 +87,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = user.Id,
                 Name = user.Name,
                 Role = user.Role,
+                // here is a problem 
+                // because this way only update the password. but not generate new hash..
                 Password = user.Password,
                 PasswordHash = oldUser.PasswordHash,
                 PasswordSalt = oldUser.PasswordSalt
