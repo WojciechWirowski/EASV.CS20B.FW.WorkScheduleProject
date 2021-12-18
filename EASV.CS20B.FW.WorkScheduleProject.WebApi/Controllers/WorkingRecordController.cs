@@ -54,7 +54,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         
         
         //HttpGet request to get working record by id
-        [HttpGet("{id}")]
+        [HttpGet(nameof(GetById))]
         public WorkingRecordDto GetById(int id)
         {
             var workingRecord = _service.GetById(new WorkingRecord{Id = id});
@@ -92,7 +92,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
         }
         //HttpGet request to get records by employee id
-        [HttpGet("getByEmployee{id}")]
+        [HttpGet(nameof(GetByEmployeeId))]
         public ActionResult<WorkingRecordDto> GetByEmployeeId(int id)
         {
             try
@@ -184,14 +184,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         
         
         //HttpDelete request to delete working record by id
-        [HttpDelete("DeleteBy{id}")]
+        [HttpDelete(nameof(Delete))]
         public WorkingRecordDto Delete(int id)
         {
             var workingRecord = _service.Delete(new WorkingRecord {Id = id});
             return new WorkingRecordDto() { Id = workingRecord.Id };
         }
+        
         //HttpPut request to update working record
-        [HttpPut]
+        [HttpPut(nameof(Modify))]
         public WorkingRecordDto Modify(WorkingRecordDto workingRecordDto)
         {
             var workingRecord = new WorkingRecord()
