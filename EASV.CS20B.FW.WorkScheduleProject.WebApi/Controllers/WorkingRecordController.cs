@@ -120,15 +120,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
         }
         //HttpPost request to create a record
-        [HttpPost(nameof(CheckIn))]
-        public ActionResult<WorkingRecordDto> CheckIn([FromBody] WorkingRecordDto dto)
+        [HttpGet(nameof(CheckIn))]
+        public ActionResult<WorkingRecordDto> CheckIn(int id)
         {
             try
             {
                 var record = new WorkingRecord
                 {
-                   EmployeeId = dto.EmployeeId,
-                    CheckInTime = dto.CheckInTime
+                   EmployeeId = id,
                 };
                 var workingRecord = _service.CheckIn(record);
                 var workingRecordDto = new WorkingRecordDto()
@@ -151,15 +150,15 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
         }
         
-        [HttpPost(nameof(CheckOut))]
-        public ActionResult<WorkingRecordDto> CheckOut([FromBody] WorkingRecordDto dto)
+        [HttpGet(nameof(CheckOut))]
+        public ActionResult<WorkingRecordDto> CheckOut(int id)
         {
             try
             {
                 var record = new WorkingRecord
                 {
-                    Id = dto.Id,
-                    CheckOutTime = dto.CheckOutTime
+                    EmployeeId = id,
+                    CheckInTime = DateTime.Today,
                 };
                 var workingRecord = _service.CheckOut(record);
                 var workingRecordDto = new WorkingRecordDto()

@@ -39,16 +39,17 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             if (_userRepository.GetUserById(workingRecord.EmployeeId) == null)
                 throw new InvalidDataException("EmployeeId should be exist.");
             
+            workingRecord.CheckInTime = DateTime.Now;
             return _workingRecordRepository.Create(workingRecord);
         }
 
         public WorkingRecord CheckOut(WorkingRecord workingRecord)
         {
-            var readById = _workingRecordRepository.GetById(workingRecord.Id);
-            if (readById == null)
+            var byEmployeeIdAndDate = _workingRecordRepository.GetByEmployeeIdAndDate(workingRecord.CheckInTime,workingRecord.EmployeeId);
+            if (byEmployeeIdAndDate == null)
                 throw new Exception("The working record are not exist.");
-            readById.CheckOutTime = workingRecord.CheckOutTime;
-            return _workingRecordRepository.Modify(readById);
+            byEmployeeIdAndDate.CheckOutTime = DateTime.Now;
+            return _workingRecordRepository.Modify(byEmployeeIdAndDate);
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)

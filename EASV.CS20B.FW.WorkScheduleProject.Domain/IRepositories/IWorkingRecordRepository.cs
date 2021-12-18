@@ -19,5 +19,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories
 
         public List<WorkingRecord> GetByEmployeeId(int id);
         List<WorkingRecord> GetByDate(DateTime dateTime);
+        WorkingRecord GetByEmployeeIdAndDate(DateTime workingRecordCheckInTime, int employeeId);
     }
 }

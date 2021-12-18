@@ -33,10 +33,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
         {
             RecordEntity recordEntity = new RecordEntity
             {
-                Id = record.Id,
                 EmployeeId = record.EmployeeId,
                 CheckInTime = record.CheckInTime,
-                CheckOutTime = record.CheckOutTime
             };
             _ctx.Records.Add(recordEntity);
             _ctx.SaveChanges();
@@ -105,17 +103,22 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 WorkingHours = recordEntity.WorkingHours
             }).Where(r => r.CheckInTime.Date == dateTime.Date).ToList();
         }
-        
-        public List<WorkingRecord> GetByEmployeeIdAndDate(int id)
+
+        public WorkingRecord GetByEmployeeIdAndDate(DateTime workingRecordCheckInTime, int employeeId)
         {
-            var selectQuery = _ctx.Records.Select(recordEntity => new WorkingRecord
-            {
-                Id = recordEntity.Id,
-                EmployeeId = recordEntity.EmployeeId,
-                CheckInTime = recordEntity.CheckInTime,
-                CheckOutTime = recordEntity.CheckOutTime
-            }).Where(w => w.EmployeeId == id && w.CheckInTime.Date == DateTime.Today).ToList();
-            return selectQuery;
+            return _ctx.Records
+                .Select(recordEntity => new WorkingRecord
+                {
+                    Id = recordEntity.Id,
+                    CheckInTime = recordEntity.CheckInTime,
+                    CheckOutTime = recordEntity.CheckOutTime,
+                    EmployeeId = recordEntity.EmployeeId,
+                    WorkingHours = recordEntity.WorkingHours
+                })
+                .OrderBy(order => order.Id)
+                .Last(r
+                    => (r.EmployeeId == employeeId) 
+                       && (r.CheckInTime.Date.Equals(workingRecordCheckInTime.Date)));
         }
     }
 }

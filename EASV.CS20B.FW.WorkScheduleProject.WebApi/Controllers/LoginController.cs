@@ -21,20 +21,19 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
         //HttpPost request to login
         [AllowAnonymous]
         [HttpPost(nameof(Post))]
-        public IActionResult Post([FromBody] LoginInput model)
+        public ActionResult<UserDto> Post([FromBody] LoginInput model)
         {
             try
             {
-                string userToken;
-                string role;
-                if (_userAuthenticator.Login(model.Username, model.Password, out userToken, out role))
+                if (_userAuthenticator.Login(model.Username, model.Password, out string userToken, out string role, out int id))
                 {
                     //Authentication successful
-                    return Ok(new
+                    return Ok(new UserDto()
                     {
-                        username = model.Username,
-                        token = userToken,
-                        role = role
+                        Name = model.Username,
+                        Token = userToken,
+                        Role = role,
+                        Id = id
                     });
                 }
             }
