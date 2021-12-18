@@ -19,7 +19,11 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         {
             _service = service;
         }
-        //HttpGet request to get all records
+        
+        /// <summary>
+        /// Get all WorkingRecord as an array
+        /// </summary>
+        /// <returns>ActionResult working record</returns>
         [HttpGet(nameof(GetAllRecords))]
         public ActionResult<WorkingRecordDto> GetAllRecords()
         {
@@ -47,6 +51,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                 return StatusCode(500, "System problems occured");
             }
         }
+        
+        
         //HttpGet request to get working record by id
         [HttpGet("{id}")]
         public WorkingRecordDto GetById(int id)
@@ -86,7 +92,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
             }
         }
         //HttpGet request to get records by employee id
-        [HttpGet("~/get records by employeeId")]
+        [HttpGet("getByEmployee{id}")]
         public ActionResult<WorkingRecordDto> GetByEmployeeId(int id)
         {
             try
@@ -178,7 +184,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         
         
         //HttpDelete request to delete working record by id
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteBy{id}")]
         public WorkingRecordDto Delete(int id)
         {
             var workingRecord = _service.Delete(new WorkingRecord {Id = id});
