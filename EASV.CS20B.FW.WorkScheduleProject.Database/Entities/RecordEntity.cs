@@ -8,6 +8,6 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Entities
         public int EmployeeId { get; set; }
         public DateTime CheckInTime { get; set; }
         public DateTime CheckOutTime { get; set; }
-        public TimeSpan WorkingHours { get; set; }
+        public long WorkingHours { get; set; }
     }
 }

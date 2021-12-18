@@ -24,7 +24,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 EmployeeId = recordEntity.EmployeeId,
                 CheckInTime = recordEntity.CheckInTime,
                 CheckOutTime = recordEntity.CheckOutTime,
-                WorkingHours = recordEntity.WorkingHours
+                WorkingHours = new TimeSpan(recordEntity.WorkingHours)
             });
             return selectQuery.ToList();
         }
@@ -48,7 +48,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = record.Id,
                 EmployeeId = record.EmployeeId,
                 CheckInTime = record.CheckInTime,
-                CheckOutTime = record.CheckOutTime
+                CheckOutTime = record.CheckOutTime,
+                WorkingHours = record.WorkingHours.Ticks
             };
             _ctx.Records.Update(recordEntity);
             _ctx.SaveChanges();
@@ -64,7 +65,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = entity.Id,
                 EmployeeId = entity.EmployeeId,
                 CheckInTime = entity.CheckInTime,
-                CheckOutTime = entity.CheckOutTime
+                CheckOutTime = entity.CheckOutTime,
+                WorkingHours = new TimeSpan(entity.WorkingHours)
             };
         }
         //gets working record by id
@@ -75,7 +77,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = recordEntity.Id,
                 EmployeeId = recordEntity.EmployeeId,
                 CheckInTime = recordEntity.CheckInTime,
-                CheckOutTime = recordEntity.CheckOutTime
+                CheckOutTime = recordEntity.CheckOutTime,
+                WorkingHours = new TimeSpan(recordEntity.WorkingHours)
             }).FirstOrDefault(r => r.Id == id);
             return selectQuery;
         }
@@ -87,7 +90,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Id = recordEntity.Id,
                 EmployeeId = recordEntity.EmployeeId,
                 CheckInTime = recordEntity.CheckInTime,
-                CheckOutTime = recordEntity.CheckOutTime
+                CheckOutTime = recordEntity.CheckOutTime,
+                WorkingHours = new TimeSpan(recordEntity.WorkingHours)
             }).Where(w => w.EmployeeId == id).ToList();
             return selectQuery;
         }
@@ -100,7 +104,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 CheckInTime = recordEntity.CheckInTime,
                 CheckOutTime = recordEntity.CheckOutTime,
                 EmployeeId = recordEntity.EmployeeId,
-                WorkingHours = recordEntity.WorkingHours
+                WorkingHours = new TimeSpan(recordEntity.WorkingHours)
             }).Where(r => r.CheckInTime.Date == dateTime.Date).ToList();
         }
 
@@ -113,7 +117,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                     CheckInTime = recordEntity.CheckInTime,
                     CheckOutTime = recordEntity.CheckOutTime,
                     EmployeeId = recordEntity.EmployeeId,
-                    WorkingHours = recordEntity.WorkingHours
+                    WorkingHours = new TimeSpan(recordEntity.WorkingHours)
                 })
                 .OrderBy(order => order.Id)
                 .Last(r

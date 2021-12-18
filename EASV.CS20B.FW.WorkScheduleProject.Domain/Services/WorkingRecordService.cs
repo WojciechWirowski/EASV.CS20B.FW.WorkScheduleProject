@@ -49,6 +49,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             if (byEmployeeIdAndDate == null)
                 throw new Exception("The working record are not exist.");
             byEmployeeIdAndDate.CheckOutTime = DateTime.Now;
+            byEmployeeIdAndDate.WorkingHours = byEmployeeIdAndDate.CheckOutTime - byEmployeeIdAndDate.CheckInTime;
             return _workingRecordRepository.Modify(byEmployeeIdAndDate);
         }
 
