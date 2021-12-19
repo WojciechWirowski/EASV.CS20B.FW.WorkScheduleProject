@@ -78,7 +78,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database.Repositories
                 Name = entity.Name
             };
         }
-        //updates user
+        //updates user (this method shouldn't exist there, except of this method we should call new method in security project that creates new hash and salt for different password)
         public User UpdateUser(User user)
         {
             var oldUser = GetUserById(user.Id);
