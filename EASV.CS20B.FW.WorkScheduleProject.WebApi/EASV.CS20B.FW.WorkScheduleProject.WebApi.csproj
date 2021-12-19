@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Security\EASV.CS20B.FW.WorkScheduleProject.Security.csproj" />
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Database\EASV.CS20B.FW.WorkScheduleProject.Database.csproj" />
     </ItemGroup>
 

@@ -15,8 +15,8 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Database
 
         public void SeedDevelopment()
         {
-            // _context.Database.EnsureDeleted();
-            // _context.Database.EnsureCreated();
+             _context.Database.EnsureDeleted();
+             _context.Database.EnsureCreated();
             Users();
             WorkingSchedule();
         }

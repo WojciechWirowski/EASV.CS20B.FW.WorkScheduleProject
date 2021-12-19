@@ -1,12 +1,11 @@
 using System;
-using EASV.CS20._3semester.FW.CrudForProductsAssignmentSecurity.Authorization;
 using EASV.CS20B.FW.WorkScheduleProject.Core.IServices;
 using EASV.CS20B.FW.WorkScheduleProject.Database;
 using EASV.CS20B.FW.WorkScheduleProject.Database.Repositories;
-using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication;
-using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authorization;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.IRepositories;
 using EASV.CS20B.FW.WorkScheduleProject.Domain.Services;
+using EASV.CS20B.FW.WorkScheduleProject.Security.Authentication;
+using EASV.CS20B.FW.WorkScheduleProject.Security.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

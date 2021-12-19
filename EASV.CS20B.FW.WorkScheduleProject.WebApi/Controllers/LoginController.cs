@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Security.Authentication;
-using EASV.CS20B.FW.WorkScheduleProject.Database.Security.Authentication;
+using EASV.CS20B.FW.WorkScheduleProject.Security.Authentication;
 using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -37,7 +36,7 @@ namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
                     });
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return StatusCode(500, "Contact administrator");
             }

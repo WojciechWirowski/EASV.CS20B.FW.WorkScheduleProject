@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.13" />
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.12" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.14.1" />
     </ItemGroup>
@@ -13,6 +13,10 @@
     <ItemGroup>
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Core\EASV.CS20B.FW.WorkScheduleProject.Core.csproj" />
       <ProjectReference Include="..\EASV.CS20B.FW.WorkScheduleProject.Domain\EASV.CS20B.FW.WorkScheduleProject.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Security" />
     </ItemGroup>
 
 </Project>
