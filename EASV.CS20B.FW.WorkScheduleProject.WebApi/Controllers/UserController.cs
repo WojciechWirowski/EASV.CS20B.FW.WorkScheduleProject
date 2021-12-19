@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
     [Route("api/[controller]")]
-    // [Authorize]
+    [Authorize]
     [ApiController]
     public class UserController : ControllerBase
     {
