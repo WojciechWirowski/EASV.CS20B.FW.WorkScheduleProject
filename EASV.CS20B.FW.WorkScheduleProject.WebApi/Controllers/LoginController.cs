@@ -4,7 +4,7 @@ using EASV.CS20B.FW.WorkScheduleProject.WebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EASV.CS20._3semester.FW.CrudForProductsAssignment.WebApi.Controllers
+namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
