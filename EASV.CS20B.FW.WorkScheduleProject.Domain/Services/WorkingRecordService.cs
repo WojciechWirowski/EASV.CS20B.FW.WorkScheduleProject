@@ -39,7 +39,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             if (_userRepository.GetUserById(workingRecord.EmployeeId) == null)
                 throw new InvalidDataException("EmployeeId should be exist.");
             
-            workingRecord.CheckInTime = DateTime.Now;
+            workingRecord.CheckInTime = DateTime.Now.ToLocalTime();
             return _workingRecordRepository.Create(workingRecord);
         }
 
@@ -48,13 +48,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.Domain.Services
             var byEmployeeIdAndDate = _workingRecordRepository.GetByEmployeeIdAndDate(workingRecord.CheckInTime,workingRecord.EmployeeId);
             if (byEmployeeIdAndDate == null)
                 throw new Exception("The working record are not exist.");
-            byEmployeeIdAndDate.CheckOutTime = DateTime.Now;
+            byEmployeeIdAndDate.CheckOutTime = DateTime.Now.ToLocalTime();
             byEmployeeIdAndDate.WorkingHours = byEmployeeIdAndDate.CheckOutTime - byEmployeeIdAndDate.CheckInTime;
             return _workingRecordRepository.Modify(byEmployeeIdAndDate);
         }
 
         public WorkingRecord Modify(WorkingRecord workingRecord)
         {
+            workingRecord.WorkingHours = workingRecord.CheckOutTime - workingRecord.CheckInTime;
             return _workingRecordRepository.Modify(workingRecord);
         }
 

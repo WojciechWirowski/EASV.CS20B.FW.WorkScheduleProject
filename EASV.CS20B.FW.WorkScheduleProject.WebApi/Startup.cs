@@ -136,7 +136,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EASV.CS20B.FW.WorkScheduleProject.WebApi v1"));
                 app.UseCors("UserPolicy");
                 var dbSeeder = new DbSeeder(context);
-                dbSeeder.SeedDevelopment();
+                // dbSeeder.SeedDevelopment();
             }
             else
             {

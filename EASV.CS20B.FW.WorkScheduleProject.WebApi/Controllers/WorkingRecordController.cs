@@ -192,20 +192,19 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
         
         //HttpPut request to update working record
         [HttpPut(nameof(Modify))]
-        public WorkingRecordDto Modify(WorkingRecordDto workingRecordDto)
+        public WorkingRecordDto Modify(WorkingRecordJsonDto workingRecordJsonDto)
         {
             var workingRecord = new WorkingRecord()
             {
-                Id = workingRecordDto.Id,
-                EmployeeId = workingRecordDto.EmployeeId,
-                CheckInTime = workingRecordDto.CheckInTime,
-                CheckOutTime = workingRecordDto.CheckOutTime,
-                WorkingHours = workingRecordDto.WorkingHours
+                Id = workingRecordJsonDto.Id,
+                EmployeeId = workingRecordJsonDto.EmployeeId,
+                CheckInTime = DateTime.Parse(workingRecordJsonDto.CheckInTime),
+                CheckOutTime = DateTime.Parse(workingRecordJsonDto.CheckOutTime)
             };
             var modify = _service.Modify(workingRecord);
             return new WorkingRecordDto()
             {
-                Id = workingRecord.Id,
+                Id = modify.Id,
                 EmployeeId = modify.EmployeeId,
                 CheckInTime = modify.CheckInTime,
                 CheckOutTime = modify.CheckOutTime,
