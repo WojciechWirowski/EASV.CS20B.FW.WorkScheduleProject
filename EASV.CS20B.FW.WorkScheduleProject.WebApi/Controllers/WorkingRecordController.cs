@@ -138,7 +138,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                     CheckOutTime = workingRecord.CheckOutTime,
                     WorkingHours = workingRecord.WorkingHours
                 };
-                return Ok($"Check In Success: {workingRecordDto} ");
+                return Ok(workingRecordDto);
             }
             catch (ArgumentException argumentException)
             {
@@ -169,7 +169,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi.Controllers
                     CheckOutTime = workingRecord.CheckOutTime,
                     WorkingHours = workingRecord.WorkingHours
                 };
-                return Ok($"Check Out Success: {workingRecordDto}");
+                return Ok(workingRecordDto);
             }
             catch (ArgumentException argumentException)
             {
