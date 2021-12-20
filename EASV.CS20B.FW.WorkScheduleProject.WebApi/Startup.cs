@@ -122,6 +122,14 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                         .AllowAnyMethod()
                         .AllowAnyOrigin();
                 });
+                
+                opt.AddPolicy("Pro-Cors", policy =>
+                {
+                    policy
+                        .WithOrigins("https://workscheduleprojecteasvcs20b.firebaseapp.com")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
             });
             
         }
@@ -140,7 +148,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
             }
             else
             {
-                app.UseCors("UserPolicy");
+                app.UseCors("Pro-Cors");
                 // when we out of develop mode then create a new DB
                 new DbSeeder(context).SeedProduction();
             }
