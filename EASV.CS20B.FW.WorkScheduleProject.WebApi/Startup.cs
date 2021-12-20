@@ -126,7 +126,9 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 opt.AddPolicy("Pro-Cors", policy =>
                 {
                     policy
-                        .WithOrigins("https://workscheduleprojecteasvcs20b.firebaseapp.com")
+                        .WithOrigins(
+                            "https://workscheduleprojecteasvcs20b.firebaseapp.com",
+                            "https://workscheduleprojecteasvcs20b.web.app")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
@@ -144,7 +146,7 @@ namespace EASV.CS20B.FW.WorkScheduleProject.WebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EASV.CS20B.FW.WorkScheduleProject.WebApi v1"));
                 app.UseCors("UserPolicy");
                 var dbSeeder = new DbSeeder(context);
-                // dbSeeder.SeedDevelopment();
+                dbSeeder.SeedDevelopment();
             }
             else
             {
